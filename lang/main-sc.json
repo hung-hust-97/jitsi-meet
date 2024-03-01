@@ -444,7 +444,7 @@
         "answer": "Risponde",
         "audioCallTitle": "Mutida in intrada",
         "decline": "Iscarta",
-        "productLabel": "dae Jitsi Meet",
+        "productLabel": "dae C-Meet",
         "videoCallTitle": "Mutida de vìdeu in intrada"
     },
     "info": {
@@ -561,6 +561,8 @@
         "youtubeTerms": "Cunditziones de servìtziu de YouTube"
     },
     "lobby": {
+        "admit": "Ammite",
+        "admitAll": "Ammite totu",
         "allow": "Permite",
         "backToKnockModeButton": "Pedi de intrare",
         "chat": "Tzarrada",
@@ -595,6 +597,8 @@
         "notificationTitle": "Aposentu de abetu",
         "passwordField": "Inserta sa crae de sa riunione",
         "passwordJoinButton": "Aderi",
+        "reject": "Refuda",
+        "rejectAll": "Refuda totu",
         "title": "Aposentu de abetu",
         "toggleLabel": "Ativa s'aposentu de abetu"
     },
@@ -693,7 +697,7 @@
         "noiseSuppressionFailedTitle": "Faddina in s'ativatzione de sa limpiadura de abbolotu",
         "noiseSuppressionNoTrackDescription": "Ativa prima su telèfonu tuo.",
         "noiseSuppressionStereoDescription": "Sa limpiadura de abbolotu de àudio stereo no est suportada.",
-        "oldElectronClientDescription1": "Paret chi ses impreende una versione betza de su cliente de Jitsi Meet, chi tenet vulnerabilidades de seguresa connotas. Assegura·ti chi atualizas a ",
+        "oldElectronClientDescription1": "Paret chi ses impreende una versione betza de su cliente de C-Meet, chi tenet vulnerabilidades de seguresa connotas. Assegura·ti chi atualizas a ",
         "oldElectronClientDescription2": "s'ùrtima versione",
         "oldElectronClientDescription3": " immoe.",
         "participantWantsToJoin": "Bolet intrare a sa riunione",
@@ -723,8 +727,6 @@
     },
     "participantsPane": {
         "actions": {
-            "admit": "Ammite",
-            "admitAll": "Ammite totu",
             "allow": "Permite a is partetzipantes:",
             "allowVideo": "Permite vìdeu",
             "askUnmute": "Pedi de ativare su micròfonu",
@@ -737,7 +739,6 @@
             "mute": "A sa muda",
             "muteAll": "Totu a sa muda",
             "muteEveryoneElse": "Pone totus a sa muda",
-            "reject": "Refuda",
             "stopEveryonesVideo": "Istuda su vìdeu de totu is partetzipantes",
             "stopVideo": "Firma su vìdeu",
             "unblockEveryoneMicCamera": "Isbloca su micròfonu e sa càmera de totu is partetzipantes",
@@ -1036,7 +1037,6 @@
         "neutral": "Neutrale",
         "sad": "Tristu",
         "search": "Chirca",
-        "searchHint": "Chirca partetzipantes",
         "seconds": "{count} seg",
         "speakerStats": "Istatìsticas de partetzipante",
         "speakerTime": "Tempus de partetzipante",
@@ -1345,7 +1345,7 @@
         "go": "BAE",
         "goSmall": "BAE",
         "headerSubtitle": "Riunione seguras e de arta calidade",
-        "headerTitle": "Jitsi Meet",
+        "headerTitle": "C-Meet",
         "info": "Informatzione pro sa mutida",
         "jitsiOnMobile": "Jitsi pro mòbiles - iscàrriga is aplicatziones nostras e avia una riunione dae ònnia logu",
         "join": "CREA / INTRA",
@@ -1353,7 +1353,7 @@
             "calendar": "Icona de calendàriu",
             "desktopPreviewThumbnail": "Miniadura de previsualizatzione de iscrivania",
             "googleLogo": "Icona de Google",
-            "logoDeepLinking": "Icona de Jitsi meet",
+            "logoDeepLinking": "Icona de C-Meet",
             "microsoftLogo": "Icona de Microsoft",
             "policyLogo": "Polìtica de iconas"
         },

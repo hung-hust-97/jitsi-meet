@@ -455,6 +455,8 @@
         "youtubeTerms": "యూట్యూబ్ సేవా నియమాలు"
     },
     "lobby": {
+        "admit": "అనుమతించు",
+        "allow": "అనుమతించు",
         "backToKnockModeButton": "సంకేతపదం లేదు, చేర్చుకోమని అడుగు",
         "dialogTitle": "Lobby mode",
         "disableDialogContent": "Lobby mode is currently enabled. This feature ensures that unwanted participants can't join your meeting. Do you want to disable it?",
@@ -483,6 +485,7 @@
         "notificationTitle": "Lobby",
         "passwordField": "సమావేశం సంకేతపదం ఇవ్వండి",
         "passwordJoinButton": "చేరు",
+        "reject": "నిరాకరించు",
         "title": "Lobby",
         "toggleLabel": "Enable lobby"
     },
@@ -544,7 +547,7 @@
         "newDeviceAction": "వాడు",
         "newDeviceAudioTitle": "కొత్త ఆడియో పరికరం కనుగొనబడింది",
         "newDeviceCameraTitle": "కొత్త కేమెరా కనుగొనబడింది",
-        "oldElectronClientDescription1": "You appear to be using an old version of the Jitsi Meet client which has known security vulnerabilities. Please make sure you update to our ",
+        "oldElectronClientDescription1": "You appear to be using an old version of the C-Meet client which has known security vulnerabilities. Please make sure you update to our ",
         "oldElectronClientDescription2": "సరికొత్త బిల్డు",
         "oldElectronClientDescription3": " ఇప్పుడే!",
         "passwordRemovedRemotely": "$t(lockRoomPasswordUppercase) removed by another participant",
@@ -563,11 +566,8 @@
     },
     "participantsPane": {
         "actions": {
-            "admit": "అనుమతించు",
-            "allow": "అనుమతించు",
             "invite": "ప్రజలను ఆహ్వానించు",
             "muteAll": "అందరినీ మౌనించు",
-            "reject": "నిరాకరించు",
             "stopVideo": "వీడియో ఆపివేయి"
         },
         "headings": {
@@ -752,8 +752,6 @@
         "hours": "{{count}}గం",
         "minutes": "{{count}}ని",
         "name": "పేరు",
-        "search": "శోధించు",
-        "searchHint": "శోధన పాల్గొనేవారు",
         "seconds": "{{count}}క్ష",
         "speakerStats": "మాట్లాడేవారి గణాంకాలు",
         "speakerTime": "మాట్లాడిన సమయం"
@@ -977,10 +975,10 @@
         "getHelp": "సహాయం పొందండి",
         "go": "వెళ్ళు",
         "goSmall": "వెళ్ళు",
-        "headerSubtitle": "Secure and high quality meetings",
+        "headerSubtitle": "Chào mừng bạn đến với C-Meet",
         "headerTitle": "జిత్సి మీట్",
         "info": "డయలింగ్ సమాచారం",
-        "jitsiOnMobile": "Jitsi on mobile – download our apps and start a meeting from anywhere",
+        "jitsiOnMobile": "C-Meet on mobile – download our apps and start a meeting from anywhere",
         "join": "CREATE / JOIN",
         "moderatedMessage": "Or <a href=\"{{url}}\" rel=\"noopener noreferrer\" target=\"_blank\">book a meeting URL</a> in advance where you are the only moderator.",
         "privacy": "అంతరంగికత",

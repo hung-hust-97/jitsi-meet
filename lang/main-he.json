@@ -462,7 +462,7 @@
         "newDeviceAction": "השתמש",
         "newDeviceAudioTitle": "זוהה התקן שמע חדש",
         "newDeviceCameraTitle": "זוהתה מצלמה חדשה",
-        "oldElectronClientDescription1": "נראה שאתה משתמש בגירסה ישנה של לקוח Jitsi Meet עם פגיעויות אבטחה ידועות. אנא וודא שאתה מעדכן ",
+        "oldElectronClientDescription1": "נראה שאתה משתמש בגירסה ישנה של לקוח C-Meet עם פגיעויות אבטחה ידועות. אנא וודא שאתה מעדכן ",
         "oldElectronClientDescription2": "לגירסה האחרונה",
         "oldElectronClientDescription3": " כעת!",
         "passwordRemovedRemotely": "",
@@ -583,8 +583,6 @@
         "hours": "{{count}} שעות",
         "minutes": "{{count}} דקות",
         "name": "שם",
-        "search": "לחפש",
-        "searchHint": "חפש משתתפים",
         "seconds": "{{count}} שניות",
         "speakerStats": "סטטיסטיקות דיבורים",
         "speakerTime": "זמן דיבור"

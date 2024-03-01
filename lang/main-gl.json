@@ -294,7 +294,7 @@
         "answer": "Resposta",
         "audioCallTitle": "Chamada entrante",
         "decline": "Rexeitar",
-        "productLabel": "de Jitsi Meet",
+        "productLabel": "de C-Meet",
         "videoCallTitle": "Chamada de vídeo entrante"
     },
     "info": {
@@ -558,8 +558,6 @@
         "hours": "{{count}}h",
         "minutes": "{{count}}m",
         "name": "Nome",
-        "search": "Procurar",
-        "searchHint": "Procurar participantes",
         "seconds": "{{count}}s",
         "speakerStats": "Estatísticas do falante",
         "speakerTime": "Tempo do falante"

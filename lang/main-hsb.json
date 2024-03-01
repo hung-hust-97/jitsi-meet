@@ -440,7 +440,7 @@
         "answer": "wotmołwić",
         "audioCallTitle": "telefonat",
         "decline": "ok",
-        "productLabel": "wot Jitsi Meet",
+        "productLabel": "wot C-Meet",
         "videoCallTitle": "widejo - telefonat"
     },
     "info": {
@@ -551,6 +551,8 @@
         "youtubeTerms": "wuměnjenja wužiwanja na YouTube"
     },
     "lobby": {
+        "admit": "přizwolić",
+        "admitAll": "wšitko přizwolić",
         "allow": "přiwzać",
         "backToKnockModeButton": "žane hesło, město toho wo přistup prosyć",
         "chat": "chat",
@@ -585,6 +587,8 @@
         "notificationTitle": "lobby",
         "passwordField": "konferencne hesło zapodać",
         "passwordJoinButton": "přistupić",
+        "reject": "wotpokazać",
+        "rejectAll": "wšitko wotpokazać",
         "title": "lobby",
         "toggleLabel": "lobby aktiwěrować"
     },
@@ -706,8 +710,6 @@
     },
     "participantsPane": {
         "actions": {
-            "admit": "přizwolić",
-            "admitAll": "wšitko přizwolić",
             "allow": "přitomnym dowolić",
             "allowVideo": "kameru zaswěčić",
             "askUnmute": "wo wotstajenje šaltowanja na němosć prosyć",
@@ -720,7 +722,6 @@
             "mute": "něme šaltować",
             "muteAll": "wšěch němych šaltować",
             "muteEveryoneElse": "wšěch druhich němych šaltować",
-            "reject": "wotpokazać",
             "stopEveryonesVideo": "wšitke kamery hasnyć",
             "stopVideo": "kameru hasnyć",
             "unblockEveryoneMicCamera": "kameru a mikrofon wšěch wočinić",
@@ -1000,7 +1001,6 @@
         "neutral": "neutralny",
         "sad": "zrudny",
         "search": "pytać",
-        "searchHint": "přitomnych pytać",
         "seconds": "{{count}}s",
         "speakerStats": "statistika rěčnikow",
         "speakerTime": "čas rěčnikow",
@@ -1292,7 +1292,7 @@
         "go": "startuj",
         "goSmall": "startuj",
         "headerSubtitle": "Wěste konferency we wysokej kwaliće",
-        "headerTitle": "Jitsi Meet",
+        "headerTitle": "C-Meet",
         "info": "informacije za zawolenje",
         "jitsiOnMobile": "Jitsi po puću - cyle jednorje našu app downloadować a konferency wšudźe po puću startować",
         "join": "KREĚROWAĆ / PŘISTUPIĆ",
@@ -1300,7 +1300,7 @@
             "calendar": "protyka",
             "desktopPreviewThumbnail": "předpokazka za desktop thumbnail",
             "googleLogo": "Google logo",
-            "logoDeepLinking": "Jitsi Meet logo",
+            "logoDeepLinking": "C-Meet logo",
             "microsoftLogo": "Microsoft logo",
             "policyLogo": "logo za směrnicy"
         },

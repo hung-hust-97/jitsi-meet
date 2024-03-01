@@ -510,7 +510,7 @@
         "answer": "接听",
         "audioCallTitle": "呼入通话",
         "decline": "拒听",
-        "productLabel": "来自 Jitsi Meet",
+        "productLabel": "来自 C-Meet",
         "videoCallTitle": "呼入视频通话"
     },
     "info": {
@@ -627,6 +627,8 @@
         "youtubeTerms": "YouTube服务条款"
     },
     "lobby": {
+        "admit": "同意",
+        "admitAll": "同意全部",
         "backToKnockModeButton": "请求加入",
         "chat": "聊天",
         "dialogTitle": "大厅模式",
@@ -660,6 +662,8 @@
         "notificationTitle": "大厅",
         "passwordField": "输入会议密码",
         "passwordJoinButton": "加入",
+        "reject": "拒绝",
+        "rejectAll": "拒绝全部",
         "title": "大厅",
         "toggleLabel": "开启大厅模式"
     },
@@ -762,7 +766,7 @@
         "noiseSuppressionDesktopAudioDescription": "在共享桌面音频时无法启用降噪功能，请禁用并重试。",
         "noiseSuppressionFailedTitle": "无法启动降噪功能",
         "noiseSuppressionStereoDescription": "暂不支持立体声音频降噪。",
-        "oldElectronClientDescription1": "你似乎正在使用存在已知安全漏洞的旧版Jitsi Meet客户端，请确保您更新到我们的",
+        "oldElectronClientDescription1": "你似乎正在使用存在已知安全漏洞的旧版C-Meet客户端，请确保您更新到我们的",
         "oldElectronClientDescription2": "最新版本",
         "oldElectronClientDescription3": "！",
         "participantWantsToJoin": "想要加入会议",
@@ -794,8 +798,6 @@
     },
     "participantsPane": {
         "actions": {
-            "admit": "同意",
-            "admitAll": "同意全部",
             "allow": "允许参会者：",
             "allowVideo": "允许视频",
             "askUnmute": "请求解除静音",
@@ -808,7 +810,6 @@
             "mute": "静音",
             "muteAll": "全体静音",
             "muteEveryoneElse": "全体静音",
-            "reject": "拒绝",
             "stopEveryonesVideo": "禁用所有人视频",
             "stopVideo": "禁用视频",
             "unblockEveryoneMicCamera": "允许所有人的麦克风和摄像头",
@@ -1120,7 +1121,6 @@
         "neutral": "中立",
         "sad": "悲伤",
         "search": "搜索",
-        "searchHint": "搜索参会者",
         "seconds": "{{count}}秒",
         "speakerStats": "发言统计",
         "speakerTime": "发言时间",
@@ -1469,7 +1469,7 @@
         "go": "开始",
         "goSmall": "开始",
         "headerSubtitle": "安全且高品质的会议",
-        "headerTitle": "Jitsi Meet",
+        "headerTitle": "C-Meet",
         "info": "拨入信息",
         "jitsiOnMobile": "手机版Jitsi – 下载我们的APP，随时随地开始会议",
         "join": "创建/加入",
@@ -1477,7 +1477,7 @@
             "calendar": "日历图标",
             "desktopPreviewThumbnail": "桌面预览缩略图",
             "googleLogo": "谷歌图标",
-            "logoDeepLinking": "Jitsi Meet图标",
+            "logoDeepLinking": "C-Meet图标",
             "microsoftLogo": "微软图标",
             "policyLogo": "政策图标"
         },

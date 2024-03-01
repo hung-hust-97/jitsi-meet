@@ -414,7 +414,7 @@
         "answer": "Uèi",
         "audioCallTitle": "Sonada entranta",
         "decline": "Regetar",
-        "productLabel": "de Jitsi Meet estant",
+        "productLabel": "de C-Meet estant",
         "videoCallTitle": "Sonada vidèo entranta"
     },
     "info": {
@@ -524,6 +524,8 @@
         "youtubeTerms": "Condicions d’utilizacion de YouTube"
     },
     "lobby": {
+        "admit": "Acceptar",
+        "admitAll": "Tot acceptar",
         "allow": "Autorizar",
         "backToKnockModeButton": "Cap de senhal, demandar a participar a la plaça",
         "dialogTitle": "Mòde sala d'espèra",
@@ -554,6 +556,8 @@
         "notificationTitle": "Sala d'espèra",
         "passwordField": "Picatz lo senhal de la conferéncia",
         "passwordJoinButton": "Rejónher",
+        "reject": "Regetar",
+        "rejectAll": "Tot regetar",
         "title": "Sala d'espèra",
         "toggleLabel": "Activar la sala d'espèra"
     },
@@ -636,7 +640,7 @@
         "newDeviceAction": "Utilizar",
         "newDeviceAudioTitle": "Nòu periferic àudio detectat",
         "newDeviceCameraTitle": "Nòva camèra detectada",
-        "oldElectronClientDescription1": "Sembla qu’utilizatz una version anciana del client Jitsi Meet qu’es conegut per conténer de problèmas de seguretat. Mercés de vos assegurar de metre a jorn ",
+        "oldElectronClientDescription1": "Sembla qu’utilizatz una version anciana del client C-Meet qu’es conegut per conténer de problèmas de seguretat. Mercés de vos assegurar de metre a jorn ",
         "oldElectronClientDescription2": "darrièra compilacion",
         "oldElectronClientDescription3": " ara !",
         "participantWantsToJoin": "Vòl rejónher la reünion",
@@ -666,8 +670,6 @@
     },
     "participantsPane": {
         "actions": {
-            "admit": "Acceptar",
-            "admitAll": "Tot acceptar",
             "allow": "Permetre als convidats de :",
             "allowVideo": "Autorizar la vidèo",
             "askUnmute": "Demandar a restablir lo son",
@@ -680,7 +682,6 @@
             "mute": "Amudir",
             "muteAll": "Amudir tot lo monde",
             "muteEveryoneElse": "Amudir tot los demai",
-            "reject": "Regetar",
             "stopEveryonesVideo": "Arrestar la vidèo de tot lo monde",
             "stopVideo": "Arrestar la vidèo",
             "unblockEveryoneMicCamera": "Desblocar lo microfòn e la camèra de tot lo monde",
@@ -935,7 +936,6 @@
         "neutral": "Neutre",
         "sad": "Trist",
         "search": "Recercar",
-        "searchHint": "Cercar participants",
         "seconds": "{{count}} segondas",
         "speakerStats": "Estatisticas orator",
         "speakerTime": "Temps de paraula",
@@ -1216,7 +1216,7 @@
         "go": "Crear",
         "goSmall": "Crear",
         "headerSubtitle": "Conferéncias securizadas e de Nauta qualitat",
-        "headerTitle": "Jitsi Meet",
+        "headerTitle": "C-Meet",
         "info": "Infor",
         "jitsiOnMobile": "Jitsi sus mobil –telecargatz nòstra aplicacion e començatz de conferéncias de pertot",
         "join": "CREAR / REJÓNHER",
@@ -1224,7 +1224,7 @@
             "calendar": "Logotipe Calendar",
             "desktopPreviewThumbnail": "Vinheta d'apercebut del burèu",
             "googleLogo": "Logotipe Google",
-            "logoDeepLinking": "Logotipe Jitsi meet",
+            "logoDeepLinking": "Logotipe C-Meet",
             "microsoftLogo": "Logotipe Microsoft",
             "policyLogo": "Logotipe de la politica"
         },

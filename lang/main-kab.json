@@ -391,7 +391,7 @@
         "answer": "Tiririt",
         "audioCallTitle": "Asiwel i ikcem-d",
         "decline": "Agwi",
-        "productLabel": "seg Jitsi Meet",
+        "productLabel": "seg C-Meet",
         "videoCallTitle": "Asiwel s tvidyut ikcem-d"
     },
     "info": {
@@ -498,6 +498,8 @@
         "youtubeTerms": "Tiwtilin n yimeẓla n Youtube"
     },
     "lobby": {
+        "admit": "Steεref",
+        "admitAll": "Steεref s kullec",
         "allow": "Sireg",
         "backToKnockModeButton": "Ulac awal uffir, suter attekki deg ubdil-is",
         "dialogTitle": "Askar Lobby",
@@ -528,6 +530,8 @@
         "notificationTitle": "Taxxamt n uraǧu",
         "passwordField": "Sekcem awal uffir n temlilit",
         "passwordJoinButton": "Semlil",
+        "reject": "Agi",
+        "rejectAll": "Agi akk",
         "title": "Taxxamt n uraǧu",
         "toggleLabel": "Rmed Lobby"
     },
@@ -603,7 +607,7 @@
         "newDeviceAction": "Seqdec",
         "newDeviceAudioTitle": "Ibenk amaynut n umeslaw yettwaf-d",
         "newDeviceCameraTitle": "Tettwaf-d tkamiṛat tamaynut",
-        "oldElectronClientDescription1": "Akka i nettwali tesseqdaceḍ lqem aqbur n umsaɣ Jitsi Meet i yesɛan uguren n tɣellist yettwassnen. Ma ulac aɣilif ḍmen ad tleqqmeḍ ",
+        "oldElectronClientDescription1": "Akka i nettwali tesseqdaceḍ lqem aqbur n umsaɣ C-Meet i yesɛan uguren n tɣellist yettwassnen. Ma ulac aɣilif ḍmen ad tleqqmeḍ ",
         "oldElectronClientDescription2": "lqem akk aneggaru",
         "oldElectronClientDescription3": " tura!",
         "passwordRemovedRemotely": "$t(lockRoomPasswordUppercase) yettwakkes sɣur yimttekki-nniḍen",
@@ -624,8 +628,6 @@
     },
     "participantsPane": {
         "actions": {
-            "admit": "Steεref",
-            "admitAll": "Steεref s kullec",
             "allow": "Sireg i yimttekkiyen ad:",
             "allowVideo": "Sireg tavidyut",
             "askUnmute": "Suter tririt n ṣṣut",
@@ -635,7 +637,6 @@
             "mute": "Asusam",
             "muteAll": "Sgugem meṛṛa",
             "muteEveryoneElse": "Sgugem-iten i meṛṛa",
-            "reject": "Agi",
             "stopEveryonesVideo": "Seḥbes tavidyut n yal yiwen",
             "stopVideo": "Seḥbes tavidyut n Youtube",
             "unblockEveryoneMicCamera": "Serreḥ i usawaḍ d tkamiṛat n yal yiwen",
@@ -873,8 +874,7 @@
         "hours": "{{count}} isragen",
         "minutes": "{{count}} n tesdidin",
         "name": "Isem",
-        "search": "Nadi",
-        "searchHint": "Nadi imttekkiyen",
+        "search": "Rechercher",
         "seconds": "{{count}} n tsinin",
         "speakerStats": "Addad n yimsiwel",
         "speakerTime": "Akud n yimsiwel"
@@ -1141,7 +1141,7 @@
         "go": "DDU",
         "goSmall": "Ddu",
         "headerSubtitle": "Timliliyin n tɣellist d tɣara meqqren",
-        "headerTitle": "Jitsi Meet",
+        "headerTitle": "C-Meet",
         "info": "Talɣut",
         "jitsiOnMobile": "Jitsi ɣef uziraz - sader isnasen-nneɣ syen tebduḍ timlilit seg wanda i tebɣiḍ",
         "join": "SNULFU-D / KCEM",
@@ -1149,7 +1149,7 @@
             "calendar": "Alugu n umitay",
             "desktopPreviewThumbnail": "Tanfult n teskant n tnarit",
             "googleLogo": "Alugu n Google",
-            "logoDeepLinking": "Alugu Jitsi Meet",
+            "logoDeepLinking": "Alugu C-Meet",
             "microsoftLogo": "Alugu n Microsoft",
             "policyLogo": "Alugu n tsertit"
         },

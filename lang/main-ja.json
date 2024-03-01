@@ -415,7 +415,7 @@
         "answer": "応答",
         "audioCallTitle": "音声通話着信",
         "decline": "拒否",
-        "productLabel": "Jitsi Meet からの",
+        "productLabel": "C-Meet からの",
         "videoCallTitle": "ビデオ通話着信"
     },
     "info": {
@@ -525,6 +525,8 @@
         "youtubeTerms": "YouTube サービス利用規約"
     },
     "lobby": {
+        "admit": "許可",
+        "admitAll": "全員許可",
         "allow": "許可",
         "backToKnockModeButton": "参加を依頼",
         "dialogTitle": "ロビーモード",
@@ -555,6 +557,8 @@
         "notificationTitle": "ロビー",
         "passwordField": "ミーティングパスワードを入力してください",
         "passwordJoinButton": "参加",
+        "reject": "却下",
+        "rejectAll": "全員却下",
         "title": "ロビー",
         "toggleLabel": "ロビーを有効"
     },
@@ -637,7 +641,7 @@
         "newDeviceAction": "使用する",
         "newDeviceAudioTitle": "新しいオーディオデバイスを検出しました",
         "newDeviceCameraTitle": "新しいカメラを検出しました",
-        "oldElectronClientDescription1": "あなたは既知のセキュリティ上の脆弱性がある、旧バージョンの Jitsi Meet クライアントを使用しているようです。今すぐ",
+        "oldElectronClientDescription1": "あなたは既知のセキュリティ上の脆弱性がある、旧バージョンの C-Meet クライアントを使用しているようです。今すぐ",
         "oldElectronClientDescription2": "最新ビルド",
         "oldElectronClientDescription3": "に更新してください!",
         "participantWantsToJoin": "ミーティングへの参加を希望しています",
@@ -667,8 +671,6 @@
     },
     "participantsPane": {
         "actions": {
-            "admit": "許可",
-            "admitAll": "全員許可",
             "allow": "参加者に次のことを許可:",
             "allowVideo": "ビデオを許可",
             "askUnmute": "ミュート解除を依頼",
@@ -681,7 +683,6 @@
             "mute": "ミュート",
             "muteAll": "全員をミュート",
             "muteEveryoneElse": "他のすべての人をミュート",
-            "reject": "却下",
             "stopEveryonesVideo": "全員のビデオを停止",
             "stopVideo": "ビデオを停止",
             "unblockEveryoneMicCamera": "全員のマイクとビデオのブロックを解除",
@@ -952,7 +953,6 @@
         "neutral": "平静",
         "sad": "悲しい",
         "search": "検索",
-        "searchHint": "参加者を検索",
         "seconds": "{{count}} 秒",
         "speakerStats": "話者の統計",
         "speakerTime": "話した時間",
@@ -1233,7 +1233,7 @@
         "go": "GO",
         "goSmall": "GO",
         "headerSubtitle": "安全で高品質なミーティング",
-        "headerTitle": "Jitsi Meet",
+        "headerTitle": "C-Meet",
         "info": "ダイヤルイン情報",
         "jitsiOnMobile": "モバイル版 Jitsi - アプリをダウンロードして、どこからでもミーティングを開始できます",
         "join": "作成 / 参加",
@@ -1241,7 +1241,7 @@
             "calendar": "カレンダーロゴ",
             "desktopPreviewThumbnail": "デスクトッププレビューサムネイル",
             "googleLogo": "Google ロゴ",
-            "logoDeepLinking": "Jitsi meet ロゴ",
+            "logoDeepLinking": "C-Meet ロゴ",
             "microsoftLogo": "Microsoft ロゴ",
             "policyLogo": "ポリシーロゴ"
         },

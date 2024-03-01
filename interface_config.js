@@ -9,7 +9,7 @@
  */
 
 var interfaceConfig = {
-    APP_NAME: 'Jitsi Meet',
+    APP_NAME: 'C-Meet',
     AUDIO_LEVEL_PRIMARY_COLOR: 'rgba(255,255,255,0.4)',
     AUDIO_LEVEL_SECONDARY_COLOR: 'rgba(255,255,255,0.2)',
 
@@ -27,7 +27,7 @@ var interfaceConfig = {
     CLOSE_PAGE_GUEST_HINT: false, // A html text to be shown to guests on the close page, false disables it
 
     DEFAULT_BACKGROUND: '#040404',
-    DEFAULT_WELCOME_PAGE_LOGO_URL: 'images/watermark.svg',
+    DEFAULT_WELCOME_PAGE_LOGO_URL: '/usr/share/jitsi-meet/images/watermark.svg',
 
     DISABLE_DOMINANT_SPEAKER_INDICATOR: false,
 
@@ -63,7 +63,7 @@ var interfaceConfig = {
      */
     DISABLE_VIDEO_BACKGROUND: false,
 
-    DISPLAY_WELCOME_FOOTER: true,
+    DISPLAY_WELCOME_FOOTER: false,
     DISPLAY_WELCOME_PAGE_ADDITIONAL_CARD: false,
     DISPLAY_WELCOME_PAGE_CONTENT: false,
     DISPLAY_WELCOME_PAGE_TOOLBAR_ADDITIONAL_CONTENT: false,
@@ -75,14 +75,14 @@ var interfaceConfig = {
 
     FILM_STRIP_MAX_HEIGHT: 120,
 
-    GENERATE_ROOMNAMES_ON_WELCOME_PAGE: true,
+    GENERATE_ROOMNAMES_ON_WELCOME_PAGE: false,
 
     /**
      * Hide the invite prompt in the header when alone in the meeting.
      */
     HIDE_INVITE_MORE_HEADER: false,
 
-    JITSI_WATERMARK_LINK: 'https://jitsi.org',
+    JITSI_WATERMARK_LINK: 'https://sec.cmcati.vn',
 
     LANG_DETECTION: true, // Allow i18n to detect the system language
     LOCAL_THUMBNAIL_RATIO: 16 / 9, // 16:9
@@ -96,7 +96,7 @@ var interfaceConfig = {
     MAXIMUM_ZOOMING_COEFFICIENT: 1.3,
 
     /**
-     * Whether the mobile app Jitsi Meet is to be promoted to participants
+     * Whether the mobile app C-Meet is to be promoted to participants
      * attempting to join a conference in a mobile Web browser. If
      * {@code undefined}, defaults to {@code true}.
      *
@@ -107,11 +107,11 @@ var interfaceConfig = {
     // Names of browsers which should show a warning stating the current browser
     // has a suboptimal experience. Browsers which are not listed as optimal or
     // unsupported are considered suboptimal. Valid values are:
-    // chrome, chromium, electron, firefox , safari, webkit
-    OPTIMAL_BROWSERS: [ 'chrome', 'chromium', 'firefox', 'electron', 'safari', 'webkit' ],
+    // chrome, chromium, edge, electron, firefox, nwjs, opera, safari
+    OPTIMAL_BROWSERS: [ 'chrome', 'chromium', 'firefox', 'nwjs', 'electron', 'safari' ],
 
     POLICY_LOGO: null,
-    PROVIDER_NAME: 'Jitsi',
+    PROVIDER_NAME: 'C-Meet',
 
     /**
      * If true, will display recent list
@@ -129,7 +129,7 @@ var interfaceConfig = {
      */
     // SHARING_FEATURES: ['email', 'url', 'dial-in', 'embed'],
 
-    SHOW_BRAND_WATERMARK: false,
+    SHOW_BRAND_WATERMARK: true,
 
     /**
      * Decides whether the chrome extension banner should be rendered on the landing page and during the meeting.
@@ -138,7 +138,7 @@ var interfaceConfig = {
      */
     SHOW_CHROME_EXTENSION_BANNER: false,
 
-    SHOW_JITSI_WATERMARK: true,
+    SHOW_JITSI_WATERMARK: false,
     SHOW_POWERED_BY: false,
     SHOW_PROMOTIONAL_CLOSE_PAGE: false,
 
@@ -146,7 +146,7 @@ var interfaceConfig = {
      * If indicated some of the error dialogs may point to the support URL for
      * help.
      */
-    SUPPORT_URL: 'https://community.jitsi.org/',
+    SUPPORT_URL: 'https://sec.cmcati.vn',
 
     // Browsers, in addition to those which do not fully support WebRTC, that
     // are not supported and should show the unsupported browser page.
@@ -189,19 +189,19 @@ var interfaceConfig = {
     /**
      * Specify URL for downloading ios mobile app.
      */
-    // MOBILE_DOWNLOAD_LINK_IOS: 'https://itunes.apple.com/us/app/jitsi-meet/id1165103905',
+    MOBILE_DOWNLOAD_LINK_IOS: 'https://sec.cmcati.vn',
 
     /**
      * Specify custom URL for downloading android mobile app.
      */
-    // MOBILE_DOWNLOAD_LINK_ANDROID: 'https://play.google.com/store/apps/details?id=org.jitsi.meet',
+    MOBILE_DOWNLOAD_LINK_ANDROID: 'https://sec.cmcati.vn',
 
     /**
      * Specify mobile app scheme for opening the app from the mobile browser.
      */
     // APP_SCHEME: 'org.jitsi.meet',
 
-    // NATIVE_APP_NAME: 'Jitsi Meet',
+    // NATIVE_APP_NAME: 'C-Meet',
 
     /**
      * Specify Firebase dynamic link properties for the mobile apps.
@@ -217,7 +217,7 @@ var interfaceConfig = {
     /**
      * Hide the logo on the deep linking pages.
      */
-    // HIDE_DEEP_LINKING_LOGO: false,
+    HIDE_DEEP_LINKING_LOGO: false,
 
     /**
      * Specify the Android app package name.
@@ -238,13 +238,13 @@ var interfaceConfig = {
     // DISABLE_FOCUS_INDICATOR: false,
 
     // Please use defaultLocalDisplayName from config.js
-    // DEFAULT_LOCAL_DISPLAY_NAME: 'me',
+    DEFAULT_LOCAL_DISPLAY_NAME: 'Tôi',
 
     // Please use defaultLogoUrl from config.js
     // DEFAULT_LOGO_URL: 'images/watermark.svg',
 
     // Please use defaultRemoteDisplayName from config.js
-    // DEFAULT_REMOTE_DISPLAY_NAME: 'Fellow Jitster',
+    DEFAULT_REMOTE_DISPLAY_NAME: 'Khách CMC',
 
     // Moved to config.js as `toolbarConfig.initialTimeout`.
     // INITIAL_TOOLBAR_TIMEOUT: 20000,
@@ -257,7 +257,40 @@ var interfaceConfig = {
     // TOOLBAR_ALWAYS_VISIBLE: false,
 
     // This config was moved to config.js as `toolbarButtons`.
-    // TOOLBAR_BUTTONS: [],
+    // TOOLBAR_BUTTONS: ['microphone', 'camera', 'desktop', 'whiteboard', 'recording', 'security', 'raisehand', 'settings','participants-pane'],
+    TOOLBAR_BUTTONS: ['camera',
+    'closedcaptions',
+    'desktop',
+    'download',
+    'embedmeeting',
+    'etherpad',
+    'feedback',
+    'filmstrip',
+    'fullscreen',
+    'hangup',
+    'help',
+    'highlight',
+    'invite',
+    'linktosalesforce',
+    'livestreaming',
+    'microphone',
+    'noisesuppression',
+    'participants-pane',
+    'profile',
+    'raisehand',
+    'recording',
+    'security',
+    'select-background',
+    'settings',
+    'shareaudio',
+    'sharedvideo',
+    'shortcuts',
+    'stats',
+    'tileview',
+    'toggle-camera',
+    'videoquality',
+    // 'whiteboard',
+],
 
     // Moved to config.js as `toolbarConfig.timeout`.
     // TOOLBAR_TIMEOUT: 4000,

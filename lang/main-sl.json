@@ -391,7 +391,7 @@
         "answer": "Odgovori",
         "audioCallTitle": "Dohodni klic",
         "decline": "Zavrni",
-        "productLabel": "iz Jitsi Meet",
+        "productLabel": "iz C-Meet",
         "videoCallTitle": "Dohodni video klic"
     },
     "info": {
@@ -499,6 +499,8 @@
         "youtubeTerms": "Pogoji uporabe YouTube"
     },
     "lobby": {
+        "admit": "Sprejmi",
+        "admitAll": "Sprejmi vse",
         "allow": "Dovoli",
         "backToKnockModeButton": "Prosi za dostop",
         "dialogTitle": "Način predsobe",
@@ -529,6 +531,8 @@
         "notificationTitle": "Predsoba",
         "passwordField": "Vnesite geslo sestanka",
         "passwordJoinButton": "Pridruži se",
+        "reject": "Zavrni",
+        "rejectAll": "Zavrni vse",
         "title": "Predsoba",
         "toggleLabel": "Omogoči predsobo"
     },
@@ -604,7 +608,7 @@
         "newDeviceAction": "Uporabi",
         "newDeviceAudioTitle": "Zaznana je bila nova zvočna naprava",
         "newDeviceCameraTitle": "Zaznana je bila nova kamera",
-        "oldElectronClientDescription1": "Uporabljate staro verzijo aplikacije Jitsi Meet, ki ima varnostne ranljivosti. Prosimo, naložite si ",
+        "oldElectronClientDescription1": "Uporabljate staro verzijo aplikacije C-Meet, ki ima varnostne ranljivosti. Prosimo, naložite si ",
         "oldElectronClientDescription2": "zadnjo verzijo.",
         "oldElectronClientDescription3": " zdaj!",
         "passwordRemovedRemotely": "$t(lockRoomPasswordUppercase) je odstranil drug udeleženec srečanja",
@@ -625,8 +629,6 @@
     },
     "participantsPane": {
         "actions": {
-            "admit": "Sprejmi",
-            "admitAll": "Sprejmi vse",
             "allow": "Udeleženci si lahko:",
             "allowVideo": "Dovoli video",
             "askUnmute": "Prosi za vklop mikrofona",
@@ -636,7 +638,6 @@
             "mute": "Izklopi zvok",
             "muteAll": "Izklopi zvok vsem",
             "muteEveryoneElse": "Izklopi zvok vsem ostalim",
-            "reject": "Zavrni",
             "stopEveryonesVideo": "Izklopi video vsem ostalim",
             "stopVideo": "Izklopi video",
             "unblockEveryoneMicCamera": "Dovoli zvok in video vsem udeležencem",
@@ -875,7 +876,6 @@
         "minutes": "{{count}}m",
         "name": "Ime",
         "search": "Iskanje",
-        "searchHint": "Iskanje udeležencev",
         "seconds": "{{count}}s",
         "speakerStats": "Statistika govorca",
         "speakerTime": "Čas govorjenja"
@@ -1142,7 +1142,7 @@
         "go": "POJDI",
         "goSmall": "POJDI",
         "headerSubtitle": "Varni in kvalitetni sestanki",
-        "headerTitle": "Jitsi Meet",
+        "headerTitle": "C-Meet",
         "info": "Informacije",
         "jitsiOnMobile": "Jitsi na telefonih – prenesi aplikacijo in začni sestanek od kjerkoli",
         "join": "PRIDRUŽI SE",
@@ -1150,7 +1150,7 @@
             "calendar": "Logo koledarja",
             "desktopPreviewThumbnail": "Sličica deljenja zaslona",
             "googleLogo": "Google Logo",
-            "logoDeepLinking": "Jitsi meet logo",
+            "logoDeepLinking": "C-Meet logo",
             "microsoftLogo": "Microsoft logo",
             "policyLogo": "Logo politike"
         },

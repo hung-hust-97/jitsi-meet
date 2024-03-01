@@ -331,7 +331,7 @@
         "answer": "응답",
         "audioCallTitle": "수신 전화",
         "decline": "거절",
-        "productLabel": "Jitsi Meet에서",
+        "productLabel": "C-Meet에서",
         "videoCallTitle": "수신 화상 전화"
     },
     "info": {
@@ -602,8 +602,6 @@
         "hours": "{{count}}h",
         "minutes": "{{count}}m",
         "name": "이름",
-        "search": "검색",
-        "searchHint": "참가자 검색",
         "seconds": "{{count}}s",
         "speakerStats": "접속자 통계",
         "speakerTime": "접속자 오디오 사용 시간"

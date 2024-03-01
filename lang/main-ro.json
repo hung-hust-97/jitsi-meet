@@ -308,7 +308,7 @@
         "answer": "Răspuns",
         "audioCallTitle": "Apel intrare",
         "decline": "Respins",
-        "productLabel": "de la Jitsi Meet",
+        "productLabel": "de la C-Meet",
         "videoCallTitle": "Intrare apel video"
     },
     "info": {
@@ -577,8 +577,6 @@
         "hours": "{{count}}h",
         "minutes": "{{count}}m",
         "name": "Nume",
-        "search": "Căutare",
-        "searchHint": "Căutați participanți",
         "seconds": "{{count}}s",
         "speakerStats": "Statistici participanți",
         "speakerTime": "Durată vorbire participant"

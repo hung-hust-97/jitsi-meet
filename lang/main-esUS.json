@@ -412,7 +412,7 @@
         "answer": "Contestar",
         "audioCallTitle": "Llamada entrante",
         "decline": "Descartar",
-        "productLabel": "de Jitsi Meet",
+        "productLabel": "de C-Meet",
         "videoCallTitle": "Videollamada"
     },
     "info": {
@@ -521,6 +521,8 @@
         "youtubeTerms": "Términos de servicios de YouTube"
     },
     "lobby": {
+        "admit": "Admitir",
+        "admitAll": "Admitir todo",
         "allow": "permitir",
         "backToKnockModeButton": "No hay contraseña, pide permiso para entrar.",
         "dialogTitle": "Sala de espera",
@@ -551,6 +553,8 @@
         "notificationTitle": "Sala de espera",
         "passwordField": "Introduce la contraseña de la reunión",
         "passwordJoinButton": "Entrar",
+        "reject": "Rechazar",
+        "rejectAll": "Rechazar todo",
         "title": "Sala de espera",
         "toggleLabel": "Activar sala de espera"
     },
@@ -627,7 +631,7 @@
         "newDeviceAction": "Usar",
         "newDeviceAudioTitle": "Se detectó un dispositivo de audio nuevo",
         "newDeviceCameraTitle": "Se detectó una cámara nueva",
-        "oldElectronClientDescription1": "Estás usando una versión vieja de la aplicación de Jitsi Meet que tiene problemas de seguridad. ¡Por favor, actualiza a la ",
+        "oldElectronClientDescription1": "Estás usando una versión vieja de la aplicación de C-Meet que tiene problemas de seguridad. ¡Por favor, actualiza a la ",
         "oldElectronClientDescription2": "versión más reciente",
         "oldElectronClientDescription3": " YA!",
         "passwordRemovedRemotely": "$t(lockRoomPasswordUppercase) eliminada por otro participante",
@@ -648,8 +652,6 @@
     },
     "participantsPane": {
         "actions": {
-            "admit": "Admitir",
-            "admitAll": "Admitir todo",
             "allow": "Permitir a los asistentes:",
             "allowVideo": "Permitir vídeo",
             "askUnmute": "Pida que le quiten el silencio",
@@ -659,7 +661,6 @@
             "mute": "Silenciar",
             "muteAll": "Silenciar a todos los demás",
             "muteEveryoneElse": "Silenciar al resto",
-            "reject": "Rechazar",
             "stopEveryonesVideo": "Detener el vídeo de todos",
             "stopVideo": "Detener el vídeo",
             "unblockEveryoneMicCamera": "Desbloquear el micrófono y la cámara de todos",
@@ -897,7 +898,6 @@
         "minutes": "{{count}} min",
         "name": "Nombre",
         "search": "Buscar",
-        "searchHint": "Buscar participantes",
         "seconds": "{{count}} s",
         "speakerStats": "Estadísticas de participantes",
         "speakerTime": "Tiempo hablado"
@@ -1171,7 +1171,7 @@
         "go": "IR",
         "goSmall": "IR",
         "headerSubtitle": "Reuniones seguras y de alta calidad",
-        "headerTitle": "Jitsi Meet",
+        "headerTitle": "C-Meet",
         "info": "Información",
         "jitsiOnMobile": "Jitsi en el móvil: descarga nuestras aplicaciones y comienza una reunión desde cualquier lugar",
         "join": "CREAR / UNIRSE",

@@ -360,7 +360,7 @@
         "answer": "Erantzun",
         "audioCallTitle": "Sarrerako deia",
         "decline": "Baztertu",
-        "productLabel": "Jitsi Meet-etik",
+        "productLabel": "C-Meet-etik",
         "videoCallTitle": "Bideo-deia sartzen"
     },
     "info": {
@@ -463,6 +463,8 @@
         "youtubeTerms": "YouTuberen erabilpen baldintzak"
     },
     "lobby": {
+        "admit": "Onartu",
+        "admitAll": "Onartu guztiak",
         "allow": "Baimendu",
         "backToKnockModeButton": "Ez du pasahitza erabili, baina sartzea eskatu du",
         "dialogTitle": "Itxaron-gela modua",
@@ -492,6 +494,7 @@
         "notificationTitle": "Itxaron-gela",
         "passwordField": "Idatzi bileraren pasahitza",
         "passwordJoinButton": "Sartu",
+        "reject": "Baztertu",
         "title": "Itxaron-gela",
         "toggleLabel": "Itxaron-gela aktibatu"
     },
@@ -554,7 +557,7 @@
         "newDeviceAction": "Erabilera",
         "newDeviceAudioTitle": "Audio-gailu berria hauteman da",
         "newDeviceCameraTitle": "Kamera berria hauteman da",
-        "oldElectronClientDescription1": "Segurtasun arazoak dituen Jitsi Meet aplikazioa erabiltzen arai zara. Eguneratu ezazu",
+        "oldElectronClientDescription1": "Segurtasun arazoak dituen C-Meet aplikazioa erabiltzen arai zara. Eguneratu ezazu",
         "oldElectronClientDescription2": "bertsio berriagora",
         "oldElectronClientDescription3": "ORAIN!",
         "passwordRemovedRemotely": "$t(lockRoomPasswordUppercase) beste erabiltzaile batek kendu du",
@@ -573,11 +576,8 @@
     },
     "participantsPane": {
         "actions": {
-            "admit": "Onartu",
-            "admitAll": "Onartu guztiak",
             "invite": "Gonbidatu norbait",
             "muteAll": "Ixilarazi guztiak",
-            "reject": "Baztertu",
             "stopVideo": "Gelditu bideoa"
         },
         "close": "Itxi",
@@ -766,8 +766,6 @@
         "hours": "{{count}}h",
         "minutes": "{{count}}m",
         "name": "Izena",
-        "search": "Bilatu",
-        "searchHint": "Bilatu parte-hartzaileak",
         "seconds": "{{count}}s",
         "speakerStats": "Hizlariaren estatistikak",
         "speakerTime": "Hizlariaren denbora"
@@ -1009,8 +1007,8 @@
         "getHelp": "Lortu laguntza",
         "go": "JOAN",
         "goSmall": "JOAN",
-        "headerSubtitle": "Secure and high quality meetings",
-        "headerTitle": "Jitsi Meet",
+        "headerSubtitle": "Chào mừng bạn đến với C-Meet",
+        "headerTitle": "C-Meet",
         "info": "Informazioa",
         "jitsiOnMobile": "Jitsi eramangarrian – deskargatu gure aplikazioak eta hasi bilerak edonondik",
         "join": "SORTU / SARTU",
@@ -1018,7 +1016,7 @@
             "calendar": "Egutegiaren logoa",
             "desktopPreviewThumbnail": "Aurrebistaren iruditxoa",
             "googleLogo": "Googleren logoa",
-            "logoDeepLinking": "Jitsi meeten logo",
+            "logoDeepLinking": "C-Meeten logo",
             "microsoftLogo": "Microsoften logo",
             "policyLogo": "Politikaren logoa"
         },

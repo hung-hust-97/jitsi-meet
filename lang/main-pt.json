@@ -67,18 +67,13 @@
             "renameBreakoutRoom": "Renomear sala",
             "sendToBreakoutRoom": "Enviar participante para:"
         },
-        "breakoutList": "lista de salas",
-        "buttonLabel": "Salas simultâneas",
         "defaultName": "Sala #{{index}}",
-        "hideParticipantList": "Ocultar lista de participantes",
         "mainRoom": "Sala principal",
         "notifications": {
             "joined": "Entrada na sala \"{{name}}\"",
             "joinedMainRoom": "Entrada na sala principal",
             "joinedTitle": "Salas simultâneas"
-        },
-        "showParticipantList": "Mostrar lista de participantes",
-        "title": "Salas simultâneas"
+        }
     },
     "calendarSync": {
         "addMeetingURL": "Adicionar um link da reunião",
@@ -421,7 +416,6 @@
         "sessTerminatedReason": "A reunião foi encerrada",
         "sessionRestarted": "Chamada reiniciada devido a um problema de ligação.",
         "shareAudio": "Continuar",
-        "shareAudioAltText": "Para partilhar o conteúdo pretendido, navegue até ao \"Separador do navegador\", seleccione o conteúdo, active a marca de verificação \"Partilhar áudio\" e, em seguida, clique no botão \"Partilhar\"",
         "shareAudioTitle": "Como partilhar áudio",
         "shareAudioWarningD1": "precisa de parar a partilha do ecrã antes de partilhar o seu áudio.",
         "shareAudioWarningD2": "precisa de reiniciar a sua partilha de ecrã e verificar a opção \"partilhar áudio\".",
@@ -483,10 +477,6 @@
         "viewUpgradeOptions": "Ver opções de actualização",
         "viewUpgradeOptionsContent": "Para obter acesso ilimitado a funcionalidades premium como gravação, transcrições, RTMP Streaming & mais, terá de actualizar o seu plano.",
         "viewUpgradeOptionsTitle": "Descobriu uma característica premium!",
-        "whiteboardLimitContent": "Lamentamos, mas o limite de utilizadores do quadro branco foi atingido.",
-        "whiteboardLimitReference": "Para mais informações consultar",
-        "whiteboardLimitReferenceUrl": "o nosso sítio Web",
-        "whiteboardLimitTitle": "Restrição da utilização do quadro branco",
         "yourEntireScreen": "O seu ecrã inteiro"
     },
     "documentSharing": {
@@ -524,7 +514,7 @@
         "answer": "Responder",
         "audioCallTitle": "Chamada recebida",
         "decline": "Recusar",
-        "productLabel": "do Jitsi Meet",
+        "productLabel": "do C-Meet",
         "videoCallTitle": "Chamada de vídeo recebida"
     },
     "info": {
@@ -642,6 +632,8 @@
         "youtubeTerms": "Termos de serviços do YouTube"
     },
     "lobby": {
+        "admit": "Aceitar",
+        "admitAll": "Aceitar todos",
         "backToKnockModeButton": "Peça para aderir",
         "chat": "Chat",
         "dialogTitle": "Modo sala de espera",
@@ -675,6 +667,8 @@
         "notificationLobbyEnabled": "A sala de espera foi activada por {{originParticipantName}}",
         "notificationTitle": "Sala de espera",
         "passwordJoinButton": "Solicitar",
+        "reject": "Rejeitar",
+        "rejectAll": "Rejeitar todos",
         "title": "Sala de espera",
         "toggleLabel": "Ativar sala de espera"
     },
@@ -730,7 +724,6 @@
         "dataChannelClosed": "Deficiência na qualidade do vídeo",
         "dataChannelClosedDescription": "O canal de ponte foi desconectado e, portanto, a qualidade do vídeo está limitada à sua configuração mais baixa.",
         "disabledIframe": "A incorporação destina-se apenas a fins de demonstração, pelo que esta chamada será desligada em {{timeout}} minutos.",
-        "disabledIframeSecondary": "A incorporação de {{domain}} destina-se apenas a fins de demonstração, pelo que esta chamada será desligada em {{timeout}} minutos. Por favor, use <a href='{{jaasDomain}}' rel='noopener noreferrer' target='_blank'>Jitsi as a Service</a> para incorporação em produção!",
         "disconnected": "desconectado",
         "displayNotifications": "Mostrar notificações para",
         "dontRemindMe": "Não me lembre",
@@ -778,7 +771,7 @@
         "noiseSuppressionDesktopAudioDescription": "A supressão de ruído não pode ser ativada enquanto se partilha o áudio do ambiente de trabalho, por favor desative-o e tente novamente.",
         "noiseSuppressionFailedTitle": "Falha ao iniciar a supressão de ruído",
         "noiseSuppressionStereoDescription": "A supressão do ruído de áudio estéreo não é atualmente suportada.",
-        "oldElectronClientDescription1": "Parece estar a utilizar uma versão antiga do cliente Jitsi Meet que tem vulnerabilidades de segurança conhecidas. Por favor, certifique-se de que actualiza a nossa ",
+        "oldElectronClientDescription1": "Parece estar a utilizar uma versão antiga do cliente C-Meet que tem vulnerabilidades de segurança conhecidas. Por favor, certifique-se de que actualiza a nossa ",
         "oldElectronClientDescription2": "compilação mais recente",
         "oldElectronClientDescription3": " agora!",
         "participantWantsToJoin": "Deseja juntar-se à reunião",
@@ -806,20 +799,15 @@
         "videoUnmuteBlockedDescription": "A operação de ligar a câmara e partilhar o ambiente de trabalho foi temporariamente bloqueada devido aos limites do sistema.",
         "videoUnmuteBlockedTitle": "Está bloqueado ligar a câmara e partilhar o ambiente de trabalho!",
         "viewLobby": "Ver sala de espera",
-        "waitingParticipants": "{{waitingParticipants}} pessoas",
-        "whiteboardLimitDescription": "Guarde o seu progresso, pois o limite de utilizadores será atingido em breve e o quadro branco será encerrado.",
-        "whiteboardLimitTitle": "Utilização do quadro branco"
+        "waitingParticipants": "{{waitingParticipants}} pessoas"
     },
     "participantsPane": {
         "actions": {
-            "admit": "Aceitar",
-            "admitAll": "Aceitar todos",
             "allow": "Permitir aos participantes:",
             "allowVideo": "Permitir vídeo",
             "askUnmute": "Pedir para ligar o som",
             "audioModeration": "Ligar o microfone deles",
             "blockEveryoneMicCamera": "Bloquear o microfone e a câmara de todos",
-            "breakoutRooms": "Salas simultâneas",
             "invite": "Convidar alguém",
             "moreModerationActions": "Mais opções de moderação",
             "moreModerationControls": "Mais controlos de moderação",
@@ -827,7 +815,6 @@
             "mute": "Silenciar",
             "muteAll": "Silenciar todos",
             "muteEveryoneElse": "Silenciar todos os outros",
-            "reject": "Rejeitar",
             "stopEveryonesVideo": "Desligar a câmara de todos",
             "stopVideo": "Desligar a câmara",
             "unblockEveryoneMicCamera": "Desbloquear o microfone e a câmara de todos",
@@ -837,7 +824,6 @@
         "headings": {
             "lobby": "Sala de espera ({{count}})",
             "participantsList": "Participantes da reunião ({{count}})",
-            "visitorRequests": " (pedidos {{count}})",
             "visitors": "Visitantes ({{count}})",
             "waitingLobby": "Aguardam na sala de espera ({{count}})"
         },
@@ -928,7 +914,7 @@
         "joinWithoutAudio": "Entrar sem áudio",
         "keyboardShortcuts": "Ativar os atalhos de teclado",
         "linkCopied": "Link copiado para a área de transferência",
-        "lookGood": "Tudo está a funcionar corretamente",
+        "lookGood": "O seu microfone funciona corretamente",
         "or": "ou",
         "premeeting": "Pré-reunião",
         "proceedAnyway": "Continuar na mesma",
@@ -1016,15 +1002,12 @@
         "onlyRecordSelf": "Gravar apenas as minhas transmissões áudio e vídeo",
         "pending": "Preparando para gravar a reunião...",
         "rec": "REC",
-        "recordAudioAndVideo": "Gravar áudio e vídeo",
-        "recordTranscription": "Gravar transcrições",
         "saveLocalRecording": "Guardar ficheiro de gravação localmente (Beta)",
         "serviceDescription": "Sua gravação será salva pelo serviço de gravação",
         "serviceDescriptionCloud": "Gravação na nuvem",
         "serviceDescriptionCloudInfo": "As reuniões gravadas são automaticamente apagadas 24h após a hora de gravação.",
         "serviceName": "Serviço de gravação",
         "sessionAlreadyActive": "Esta sessão já está a ser gravada ou transmitida em direto.",
-        "showAdvancedOptions": "Opções avançadas",
         "signIn": "Entrar",
         "signOut": "Sair",
         "surfaceError": "Por favor, seleccione o separador actual.",
@@ -1145,7 +1128,6 @@
         "neutral": "Neutro",
         "sad": "Triste",
         "search": "Pesquisar",
-        "searchHint": "Pesquisar participantes",
         "seconds": "{{count}}s",
         "speakerStats": "Estatísticas dos Participantes",
         "speakerTime": "Tempo do Participante",
@@ -1168,11 +1150,11 @@
     "toolbar": {
         "Settings": "Definições",
         "accessibilityLabel": {
-            "Settings": "Abrir definições",
+            "Settings": "Mudar configurações",
             "audioOnly": "Mudar para apenas áudio",
             "audioRoute": "Selecionar o dispositivo de som",
             "boo": "Vaia",
-            "breakoutRooms": "Salas simultâneas",
+            "breakoutRoom": "Entrar/Sair da sala",
             "callQuality": "Gerir a qualidade do vídeo",
             "carmode": "Modo de condução",
             "cc": "Mudar legendas",
@@ -1494,7 +1476,7 @@
         "go": "IR",
         "goSmall": "IR",
         "headerSubtitle": "Reuniões com segurança e alta qualidade",
-        "headerTitle": "Jitsi Meet",
+        "headerTitle": "C-Meet",
         "info": "Informações",
         "jitsiOnMobile": "Jitsi em dispositivos móveis – descarregue as nossas aplicações e inicie uma reunião em qualquer lugar",
         "join": "CRIAR / ENTRAR",
@@ -1502,7 +1484,7 @@
             "calendar": "Logo do Calendário",
             "desktopPreviewThumbnail": "Miniatura de Visualização do Desktop",
             "googleLogo": "Logo do Google",
-            "logoDeepLinking": "Logo do Jitsi Meet",
+            "logoDeepLinking": "Logo do C-Meet",
             "microsoftLogo": "Logo da Microsoft",
             "policyLogo": "Logo da Política de Privacidade"
         },

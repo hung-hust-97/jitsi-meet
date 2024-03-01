@@ -276,7 +276,7 @@
         "answer": "Vastaus",
         "audioCallTitle": "Saapuva puhelu",
         "decline": "Hylkää",
-        "productLabel": "Jitsi Meetistä",
+        "productLabel": "C-Meetistä",
         "videoCallTitle": "Saapuva videopuhelu"
     },
     "info": {
@@ -535,8 +535,6 @@
         "hours": "{{count}} t",
         "minutes": "{{count}} min",
         "name": "Nimi",
-        "search": "Etsi",
-        "searchHint": "Etsi osallistujia",
         "seconds": "{{count}} s",
         "speakerStats": "Puhujatilastot",
         "speakerTime": "Puhujan aika"

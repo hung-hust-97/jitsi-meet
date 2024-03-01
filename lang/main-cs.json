@@ -442,7 +442,7 @@
         "answer": "Odpovědět",
         "audioCallTitle": "Příchozí hovor",
         "decline": "OK",
-        "productLabel": "od Jitsi Meet",
+        "productLabel": "od C-Meet",
         "videoCallTitle": "Příchozí videohovor"
     },
     "info": {
@@ -557,6 +557,8 @@
         "youtubeTerms": "Podmínky používání YouTube"
     },
     "lobby": {
+        "admit": "",
+        "admitAll": "",
         "allow": "Povolit",
         "backToKnockModeButton": "Žádné heslo, místo toho požádat o přijetí",
         "chat": "",
@@ -591,6 +593,7 @@
         "notificationTitle": "Předsálí",
         "passwordField": "Zadejte heslo setkání",
         "passwordJoinButton": "Vstoupit",
+        "reject": "Odmítnout",
         "title": "Předsálí",
         "toggleLabel": "Zapnout předsálí"
     },
@@ -686,7 +689,7 @@
         "noiseSuppressionFailedTitle": "",
         "noiseSuppressionNoTrackDescription": "",
         "noiseSuppressionStereoDescription": "",
-        "oldElectronClientDescription1": "Zdá se, že používáte zastaralou verzi klienta Jitsi Meet, který má známé bezpečnostní zranitelnosti. Aktualizujte prosím na ",
+        "oldElectronClientDescription1": "Zdá se, že používáte zastaralou verzi klienta C-Meet, který má známé bezpečnostní zranitelnosti. Aktualizujte prosím na ",
         "oldElectronClientDescription2": "nejnovější sestavení",
         "oldElectronClientDescription3": " ihned!",
         "participantWantsToJoin": "",
@@ -716,7 +719,22 @@
     },
     "participantsPane": {
         "actions": {
-            "reject": "Odmítnout"
+            "allow": "",
+            "allowVideo": "",
+            "askUnmute": "",
+            "audioModeration": "",
+            "blockEveryoneMicCamera": "",
+            "invite": "",
+            "moreModerationActions": "",
+            "moreModerationControls": "",
+            "moreParticipantOptions": "",
+            "mute": "",
+            "muteAll": "",
+            "muteEveryoneElse": "",
+            "stopEveryonesVideo": "",
+            "stopVideo": "",
+            "unblockEveryoneMicCamera": "",
+            "videoModeration": ""
         },
         "close": "",
         "header": "",
@@ -725,7 +743,7 @@
             "participantsList": "",
             "waitingLobby": ""
         },
-        "search": "Hledat účastníky"
+        "search": ""
     },
     "passwordDigitsOnly": "Až {{number}} číslic",
     "passwordSetRemotely": "nastaveno jiným účastníkem",
@@ -1008,8 +1026,7 @@
         "name": "Jméno",
         "neutral": "",
         "sad": "",
-        "search": "Prohledat",
-        "searchHint": "Hledat účastníky",
+        "search": "",
         "seconds": "{{count}} s",
         "speakerStats": "Statistika řečníků",
         "speakerTime": "Mluvil/a již",
@@ -1309,7 +1326,7 @@
         "go": "ZAČÍT",
         "goSmall": "ZAČÍT",
         "headerSubtitle": "Bezpečné a kvalitní setkávání",
-        "headerTitle": "Jitsi Meet",
+        "headerTitle": "C-Meet",
         "info": "Informace o vytáčení",
         "jitsiOnMobile": "Jitsi na mobilu – stáhněte si naše aplikace a spusťte hovor odkudkoliv",
         "join": "VYTVOŘIT / PŘIPOJIT",

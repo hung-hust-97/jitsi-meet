@@ -382,7 +382,7 @@
         "answer": "Beantwoorden",
         "audioCallTitle": "Inkomende oproep",
         "decline": "Negeren",
-        "productLabel": "vanuit Jitsi Meet",
+        "productLabel": "vanuit C-Meet",
         "videoCallTitle": "Inkomende video-oproep"
     },
     "info": {
@@ -486,6 +486,8 @@
         "youtubeTerms": "Servicevoorwaarden YouTube"
     },
     "lobby": {
+        "admit": "Toelaten",
+        "admitAll": "Allen toelaten",
         "allow": "Toestaan",
         "backToKnockModeButton": "Geen wachtwoord, vraag om deel te mogen nemen",
         "dialogTitle": "Lobby-modus",
@@ -517,6 +519,8 @@
         "notificationTitle": "Lobby",
         "passwordField": "Voer wachtwoord voor vergadering in",
         "passwordJoinButton": "Deelnemen",
+        "reject": "Afwijzen",
+        "rejectAll": "Allen afwijzen",
         "title": "Lobby",
         "toggleLabel": "Lobby inschakelen"
     },
@@ -595,7 +599,7 @@
         "newDeviceAction": "Gebruik",
         "newDeviceAudioTitle": "Nieuw audioapparaat gedetecteerd",
         "newDeviceCameraTitle": "Nieuwe camera gedetecteerd",
-        "oldElectronClientDescription1": "Het lijkt erop dat u een oude versie van Jitsi Meet gebruikt, waarvan beveiligingskwetsbaarheden bekend zijn. Zorg ervoor dat u nu bijwerkt naar de ",
+        "oldElectronClientDescription1": "Het lijkt erop dat u een oude versie van C-Meet gebruikt, waarvan beveiligingskwetsbaarheden bekend zijn. Zorg ervoor dat u nu bijwerkt naar de ",
         "oldElectronClientDescription2": "nieuwste versie",
         "oldElectronClientDescription3": "!",
         "participantWantsToJoin": "Wil deelnemen aan de vergadering",
@@ -620,8 +624,6 @@
     },
     "participantsPane": {
         "actions": {
-            "admit": "Toelaten",
-            "admitAll": "Allen toelaten",
             "allow": "Sta deelnemers toe:",
             "allowVideo": "Video toestaan",
             "askUnmute": "Vragen om dempen op te heffen",
@@ -634,7 +636,6 @@
             "mute": "Dempen",
             "muteAll": "Allen dempen",
             "muteEveryoneElse": "Alle anderen dempen",
-            "reject": "Afwijzen",
             "stopEveryonesVideo": "Camera's van iedereen uitzetten",
             "stopVideo": "Camera uitzetten",
             "unblockEveryoneMicCamera": "Deblokkeer microfoon en camera van allen",
@@ -854,8 +855,6 @@
         "hours": "{{count}}u",
         "minutes": "{{count}}m",
         "name": "Naam",
-        "search": "Zoeken",
-        "searchHint": "Zoek deelnemers",
         "seconds": "{{count}}s",
         "speakerStats": "Sprekerstatistieken",
         "speakerTime": "Sprekertijd"
@@ -1097,7 +1096,7 @@
         "go": "GAAN",
         "goSmall": "GAAN",
         "headerSubtitle": "Veilige vergaderingen van hoge kwaliteit",
-        "headerTitle": "Jitsi Meet",
+        "headerTitle": "C-Meet",
         "info": "Informatie",
         "jitsiOnMobile": "Jitsi op de mobiele telefoon - download onze apps en start overal een vergadering",
         "join": "AANMAKEN / DEELNEMEN",

@@ -312,7 +312,7 @@
         "answer": "Адказ",
         "audioCallTitle": "Уваходны званок",
         "decline": "Адхіліць",
-        "productLabel": "з Jitsi Meet",
+        "productLabel": "з C-Meet",
         "videoCallTitle": "Уваходны відэазванок"
     },
     "info": {
@@ -584,8 +584,6 @@
         "hours": "{{count}}г",
         "minutes": "{{count}}хв",
         "name": "Імя",
-        "search": "Пошук",
-        "searchHint": "Пошук удзельнікаў",
         "seconds": "{{count}} с",
         "speakerStats": "Статыстыка выступаў",
         "speakerTime": "Час выступленняў"
