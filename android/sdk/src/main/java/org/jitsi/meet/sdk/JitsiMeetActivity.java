@@ -37,7 +37,7 @@ import org.jitsi.meet.sdk.log.JitsiMeetLogger;
 import java.util.HashMap;
 
 /**
- * A base activity for SDK users to embed.  It contains all the required wiring
+ * A base activity for SDK users to embed. It contains all the required wiring
  * between the {@code JitsiMeetView} and the Activity lifecycle methods.
  *
  * In this activity we use a single {@code JitsiMeetView} instance. This
@@ -47,7 +47,7 @@ import java.util.HashMap;
  * {@code JitsiMeetActivityDelegate} static methods.
  */
 public class JitsiMeetActivity extends AppCompatActivity
-    implements JitsiMeetActivityInterface {
+        implements JitsiMeetActivityInterface {
 
     protected static final String TAG = JitsiMeetActivity.class.getSimpleName();
 
@@ -80,8 +80,7 @@ public class JitsiMeetActivity extends AppCompatActivity
     }
 
     public static void launch(Context context, String url) {
-        JitsiMeetConferenceOptions options
-            = new JitsiMeetConferenceOptions.Builder().setRoom(url).build();
+        JitsiMeetConferenceOptions options = new JitsiMeetConferenceOptions.Builder().setRoom(url).build();
         launch(context, options);
     }
 
@@ -124,12 +123,18 @@ public class JitsiMeetActivity extends AppCompatActivity
 
     @Override
     public void onDestroy() {
-        // Here we are trying to handle the following corner case: an application using the SDK
-        // is using this Activity for displaying meetings, but there is another "main" Activity
-        // with other content. If this Activity is "swiped out" from the recent list we will get
-        // Activity#onDestroy() called without warning. At this point we can try to leave the
-        // current meeting, but when our view is detached from React the JS <-> Native bridge won't
-        // be operational so the external API won't be able to notify the native side that the
+        // Here we are trying to handle the following corner case: an application using
+        // the SDK
+        // is using this Activity for displaying meetings, but there is another "main"
+        // Activity
+        // with other content. If this Activity is "swiped out" from the recent list we
+        // will get
+        // Activity#onDestroy() called without warning. At this point we can try to
+        // leave the
+        // current meeting, but when our view is detached from React the JS <-> Native
+        // bridge won't
+        // be operational so the external API won't be able to notify the native side
+        // that the
         // conference terminated. Thus, try our best to clean up.
         leave();
 
@@ -162,16 +167,15 @@ public class JitsiMeetActivity extends AppCompatActivity
     }
 
     public void join(@Nullable String url) {
-        JitsiMeetConferenceOptions options
-            = new JitsiMeetConferenceOptions.Builder()
-            .setRoom(url)
-            .build();
+        JitsiMeetConferenceOptions options = new JitsiMeetConferenceOptions.Builder()
+                .setRoom(url)
+                .build();
         join(options);
     }
 
     public void join(JitsiMeetConferenceOptions options) {
-        if (this.jitsiView  != null) {
-            this.jitsiView .join(options);
+        if (this.jitsiView != null) {
+            this.jitsiView.join(options);
         } else {
             JitsiMeetLogger.w("Cannot join, view is null");
         }
@@ -185,8 +189,7 @@ public class JitsiMeetActivity extends AppCompatActivity
         }
     }
 
-    private @Nullable
-    JitsiMeetConferenceOptions getConferenceOptions(Intent intent) {
+    private @Nullable JitsiMeetConferenceOptions getConferenceOptions(Intent intent) {
         String action = intent.getAction();
 
         if (Intent.ACTION_VIEW.equals(action)) {
@@ -202,13 +205,17 @@ public class JitsiMeetActivity extends AppCompatActivity
     }
 
     /**
-     * Helper function called during activity initialization. If {@code true} is returned, the
-     * initialization is delayed and the {@link JitsiMeetActivity#initialize()} method is not
-     * called. In this case, it's up to the subclass to call the initialize method when ready.
+     * Helper function called during activity initialization. If {@code true} is
+     * returned, the
+     * initialization is delayed and the {@link JitsiMeetActivity#initialize()}
+     * method is not
+     * called. In this case, it's up to the subclass to call the initialize method
+     * when ready.
      * <p>
-     * This is mainly required so we do some extra initialization in the Jitsi Meet app.
+     * This is mainly required so we do some extra initialization in the C-Meet app.
      *
-     * @return {@code true} if the initialization will be delayed, {@code false} otherwise.
+     * @return {@code true} if the initialization will be delayed, {@code false}
+     *         otherwise.
      */
     protected boolean extraInitialize() {
         return false;
@@ -286,8 +293,8 @@ public class JitsiMeetActivity extends AppCompatActivity
 
     @Override
     protected void onUserLeaveHint() {
-        if (this.jitsiView  != null) {
-            this.jitsiView .enterPictureInPicture();
+        if (this.jitsiView != null) {
+            this.jitsiView.enterPictureInPicture();
         }
     }
 

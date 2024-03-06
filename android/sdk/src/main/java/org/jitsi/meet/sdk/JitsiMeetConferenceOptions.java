@@ -22,13 +22,15 @@ import android.os.Parcelable;
 
 import java.net.URL;
 
-
 /**
- * This class represents the options when joining a Jitsi Meet conference. The user can create an
- * instance by using {@link JitsiMeetConferenceOptions.Builder} and setting the desired options
+ * This class represents the options when joining a C-Meet conference. The user
+ * can create an
+ * instance by using {@link JitsiMeetConferenceOptions.Builder} and setting the
+ * desired options
  * there.
  *
- * The resulting {@link JitsiMeetConferenceOptions} object is immutable and represents how the
+ * The resulting {@link JitsiMeetConferenceOptions} object is immutable and
+ * represents how the
  * conference will be joined.
  */
 public class JitsiMeetConferenceOptions implements Parcelable {
@@ -51,7 +53,8 @@ public class JitsiMeetConferenceOptions implements Parcelable {
     private Bundle config;
 
     /**
-     * Feature flags. See: https://github.com/jitsi/jitsi-meet/blob/master/react/features/base/flags/constants.js
+     * Feature flags. See:
+     * https://github.com/jitsi/jitsi-meet/blob/master/react/features/base/flags/constants.js
      */
     private Bundle featureFlags;
 
@@ -98,10 +101,14 @@ public class JitsiMeetConferenceOptions implements Parcelable {
             featureFlags = new Bundle();
         }
 
-        /**\
+        /**
+         * \
          * Sets the server URL.
-         * @param url - {@link URL} of the server where the conference should take place.
-         * @return - The {@link Builder} object itself so the method calls can be chained.
+         * 
+         * @param url - {@link URL} of the server where the conference should take
+         *            place.
+         * @return - The {@link Builder} object itself so the method calls can be
+         *         chained.
          */
         public Builder setServerURL(URL url) {
             this.serverURL = url;
@@ -111,8 +118,10 @@ public class JitsiMeetConferenceOptions implements Parcelable {
 
         /**
          * Sets the room where the conference will take place.
+         * 
          * @param room - Name of the room.
-         * @return - The {@link Builder} object itself so the method calls can be chained.
+         * @return - The {@link Builder} object itself so the method calls can be
+         *         chained.
          */
         public Builder setRoom(String room) {
             this.room = room;
@@ -122,8 +131,10 @@ public class JitsiMeetConferenceOptions implements Parcelable {
 
         /**
          * Sets the conference subject.
+         * 
          * @param subject - Subject for the conference.
-         * @return - The {@link Builder} object itself so the method calls can be chained.
+         * @return - The {@link Builder} object itself so the method calls can be
+         *         chained.
          */
         public Builder setSubject(String subject) {
             setConfigOverride("subject", subject);
@@ -133,8 +144,10 @@ public class JitsiMeetConferenceOptions implements Parcelable {
 
         /**
          * Sets the JWT token to be used for authentication when joining a conference.
+         * 
          * @param token - The JWT token to be used for authentication.
-         * @return - The {@link Builder} object itself so the method calls can be chained.
+         * @return - The {@link Builder} object itself so the method calls can be
+         *         chained.
          */
         public Builder setToken(String token) {
             this.token = token;
@@ -144,8 +157,10 @@ public class JitsiMeetConferenceOptions implements Parcelable {
 
         /**
          * Indicates the conference will be joined with the microphone muted.
+         * 
          * @param audioMuted - Muted indication.
-         * @return - The {@link Builder} object itself so the method calls can be chained.
+         * @return - The {@link Builder} object itself so the method calls can be
+         *         chained.
          */
         public Builder setAudioMuted(boolean audioMuted) {
             setConfigOverride("startWithAudioMuted", audioMuted);
@@ -154,20 +169,26 @@ public class JitsiMeetConferenceOptions implements Parcelable {
         }
 
         /**
-         * Indicates the conference will be joined in audio-only mode. In this mode no video is
+         * Indicates the conference will be joined in audio-only mode. In this mode no
+         * video is
          * sent or received.
+         * 
          * @param audioOnly - Audio-mode indicator.
-         * @return - The {@link Builder} object itself so the method calls can be chained.
+         * @return - The {@link Builder} object itself so the method calls can be
+         *         chained.
          */
         public Builder setAudioOnly(boolean audioOnly) {
             setConfigOverride("startAudioOnly", audioOnly);
 
             return this;
         }
+
         /**
          * Indicates the conference will be joined with the camera muted.
+         * 
          * @param videoMuted - Muted indication.
-         * @return - The {@link Builder} object itself so the method calls can be chained.
+         * @return - The {@link Builder} object itself so the method calls can be
+         *         chained.
          */
         public Builder setVideoMuted(boolean videoMuted) {
             setConfigOverride("startWithVideoMuted", videoMuted);
@@ -230,8 +251,10 @@ public class JitsiMeetConferenceOptions implements Parcelable {
         }
 
         /**
-         * Builds the immutable {@link JitsiMeetConferenceOptions} object with the configuration
+         * Builds the immutable {@link JitsiMeetConferenceOptions} object with the
+         * configuration
          * that this {@link Builder} instance specified.
+         * 
          * @return - The built {@link JitsiMeetConferenceOptions} object.
          */
         public JitsiMeetConferenceOptions build() {

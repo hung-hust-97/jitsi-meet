@@ -41,22 +41,23 @@ import java.util.Collection;
 import java.util.HashMap;
 
 /**
- * The one and only Activity that the Jitsi Meet app needs. The
+ * The one and only Activity that the C-Meet app needs. The
  * {@code Activity} is launched in {@code singleTask} mode, so it will be
  * created upon application initialization and there will be a single instance
  * of it. Further attempts at launching the application once it was already
- * launched will result in {@link MainActivity#onNewIntent(Intent)} being called.
+ * launched will result in {@link MainActivity#onNewIntent(Intent)} being
+ * called.
  */
 public class MainActivity extends JitsiMeetActivity {
     /**
      * The request code identifying requests for the permission to draw on top
      * of other apps. The value must be 16-bit and is arbitrarily chosen here.
      */
-    private static final int OVERLAY_PERMISSION_REQUEST_CODE
-        = (int) (Math.random() * Short.MAX_VALUE);
+    private static final int OVERLAY_PERMISSION_REQUEST_CODE = (int) (Math.random() * Short.MAX_VALUE);
 
     /**
-     * ServerURL configuration key for restriction configuration using {@link android.content.RestrictionsManager}
+     * ServerURL configuration key for restriction configuration using
+     * {@link android.content.RestrictionsManager}
      */
     public static final String RESTRICTION_SERVER_URL = "SERVER_URL";
 
@@ -75,7 +76,6 @@ public class MainActivity extends JitsiMeetActivity {
      */
     private String defaultURL;
 
-
     // JitsiMeetActivity overrides
     //
 
@@ -87,7 +87,7 @@ public class MainActivity extends JitsiMeetActivity {
 
     @Override
     protected boolean extraInitialize() {
-        Log.d(this.getClass().getSimpleName(), "LIBRE_BUILD="+BuildConfig.LIBRE_BUILD);
+        Log.d(this.getClass().getSimpleName(), "LIBRE_BUILD=" + BuildConfig.LIBRE_BUILD);
 
         // Setup Crashlytics and Firebase Dynamic Links
         // Here we are using reflection since it may have been disabled at compile time.
@@ -103,10 +103,9 @@ public class MainActivity extends JitsiMeetActivity {
         // order to display the warning and error overlays.
         if (BuildConfig.DEBUG) {
             if (!Settings.canDrawOverlays(this)) {
-                Intent intent
-                    = new Intent(
-                    Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                    Uri.parse("package:" + getPackageName()));
+                Intent intent = new Intent(
+                        Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                        Uri.parse("package:" + getPackageName()));
 
                 startActivityForResult(intent, OVERLAY_PERMISSION_REQUEST_CODE);
 
@@ -129,7 +128,7 @@ public class MainActivity extends JitsiMeetActivity {
             }
         };
         registerReceiver(broadcastReceiver,
-            new IntentFilter(Intent.ACTION_APPLICATION_RESTRICTIONS_CHANGED));
+                new IntentFilter(Intent.ACTION_APPLICATION_RESTRICTIONS_CHANGED));
 
         resolveRestrictions();
         setJitsiMeetConferenceDefaultOptions();
@@ -148,31 +147,29 @@ public class MainActivity extends JitsiMeetActivity {
 
     private void setJitsiMeetConferenceDefaultOptions() {
         // Set default options
-        JitsiMeetConferenceOptions defaultOptions
-            = new JitsiMeetConferenceOptions.Builder()
-            .setServerURL(buildURL(defaultURL))
-            .setFeatureFlag("welcomepage.enabled", true)
-            .setFeatureFlag("resolution", 360)
-            .setFeatureFlag("server-url-change.enabled", !configurationByRestrictions)
-            .build();
+        JitsiMeetConferenceOptions defaultOptions = new JitsiMeetConferenceOptions.Builder()
+                .setServerURL(buildURL(defaultURL))
+                .setFeatureFlag("welcomepage.enabled", true)
+                .setFeatureFlag("resolution", 360)
+                .setFeatureFlag("server-url-change.enabled", !configurationByRestrictions)
+                .build();
         JitsiMeet.setDefaultConferenceOptions(defaultOptions);
     }
 
     private void resolveRestrictions() {
-        RestrictionsManager manager =
-            (RestrictionsManager) getSystemService(Context.RESTRICTIONS_SERVICE);
+        RestrictionsManager manager = (RestrictionsManager) getSystemService(Context.RESTRICTIONS_SERVICE);
         Bundle restrictions = manager.getApplicationRestrictions();
         Collection<RestrictionEntry> entries = manager.getManifestRestrictions(
-            getApplicationContext().getPackageName());
+                getApplicationContext().getPackageName());
         for (RestrictionEntry restrictionEntry : entries) {
             String key = restrictionEntry.getKey();
             if (RESTRICTION_SERVER_URL.equals(key)) {
                 // If restrictions are passed to the application.
                 if (restrictions != null &&
-                    restrictions.containsKey(RESTRICTION_SERVER_URL)) {
+                        restrictions.containsKey(RESTRICTION_SERVER_URL)) {
                     defaultURL = restrictions.getString(RESTRICTION_SERVER_URL);
                     configurationByRestrictions = true;
-                // Otherwise use default URL from app-restrictions.xml.
+                    // Otherwise use default URL from app-restrictions.xml.
                 } else {
                     defaultURL = restrictionEntry.getSelectedString();
                     configurationByRestrictions = false;
@@ -217,7 +214,7 @@ public class MainActivity extends JitsiMeetActivity {
 
         if (!isInPictureInPictureMode) {
             this.startActivity(new Intent(this, getClass())
-                .addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+                    .addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
         }
     }
 

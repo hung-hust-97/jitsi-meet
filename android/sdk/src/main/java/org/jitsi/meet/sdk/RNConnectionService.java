@@ -27,7 +27,7 @@ import com.facebook.react.modules.core.DeviceEventManagerModule;
 import org.jitsi.meet.sdk.log.JitsiMeetLogger;
 
 /**
- * The react-native side of Jitsi Meet's {@link ConnectionService}. Exposes
+ * The react-native side of C-Meet's {@link ConnectionService}. Exposes
  * the Java Script API.
  *
  * @author Pawel Domas
@@ -42,7 +42,8 @@ class RNConnectionService extends ReactContextBaseJavaModule {
 
     private static RNConnectionService sRNConnectionServiceInstance;
     /**
-     * Handler for dealing with call state changes. We are acting as a proxy between ConnectionService
+     * Handler for dealing with call state changes. We are acting as a proxy between
+     * ConnectionService
      * and other modules such as {@link AudioModeModule}.
      */
     private CallAudioStateListener callAudioStateListener;
@@ -51,12 +52,12 @@ class RNConnectionService extends ReactContextBaseJavaModule {
      * Sets the audio route on all existing {@link android.telecom.Connection}s
      *
      * @param audioRoute the new audio route to be set. See
-     * {@link android.telecom.CallAudioState} constants prefixed with "ROUTE_".
+     *                   {@link android.telecom.CallAudioState} constants prefixed
+     *                   with "ROUTE_".
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
     static void setAudioRoute(int audioRoute) {
-        for (ConnectionService.ConnectionImpl c
-                : ConnectionService.getConnections()) {
+        for (ConnectionService.ConnectionImpl c : ConnectionService.getConnections()) {
             c.setAudioRoute(audioRoute);
         }
     }
@@ -83,16 +84,18 @@ class RNConnectionService extends ReactContextBaseJavaModule {
     /**
      * Starts a new outgoing call.
      *
-     * @param callUUID - unique call identifier assigned by Jitsi Meet to
-     *        a conference call.
-     * @param handle - a call handle which by default is Jitsi Meet room's URL.
+     * @param callUUID - unique call identifier assigned by C-Meet to
+     *                 a conference call.
+     * @param handle   - a call handle which by default is C-Meet room's URL.
      * @param hasVideo - whether or not user starts with the video turned on.
-     * @param promise - the Promise instance passed by the React-native bridge,
-     *        so that this method returns a Promise on the JS side.
+     * @param promise  - the Promise instance passed by the React-native bridge,
+     *                 so that this method returns a Promise on the JS side.
      *
-     * NOTE regarding the "missingPermission" suppress - SecurityException will
-     * be handled as part of the Exception try catch block and the Promise will
-     * be rejected.
+     *                 NOTE regarding the "missingPermission" suppress -
+     *                 SecurityException will
+     *                 be handled as part of the Exception try catch block and the
+     *                 Promise will
+     *                 be rejected.
      */
     @SuppressLint("MissingPermission")
     @ReactMethod
@@ -102,10 +105,10 @@ class RNConnectionService extends ReactContextBaseJavaModule {
             boolean hasVideo,
             Promise promise) {
         JitsiMeetLogger.d("%s startCall UUID=%s, h=%s, v=%s",
-                            TAG,
-                            callUUID,
-                            handle,
-                            hasVideo);
+                TAG,
+                callUUID,
+                handle,
+                hasVideo);
 
         ReactApplicationContext ctx = getReactApplicationContext();
 
@@ -113,8 +116,7 @@ class RNConnectionService extends ReactContextBaseJavaModule {
         PhoneAccountHandle accountHandle;
 
         try {
-            accountHandle
-                = ConnectionService.registerPhoneAccount(getReactApplicationContext(), address, callUUID);
+            accountHandle = ConnectionService.registerPhoneAccount(getReactApplicationContext(), address, callUUID);
         } catch (Throwable tr) {
             JitsiMeetLogger.e(tr, TAG + " error in startCall");
 
@@ -127,10 +129,10 @@ class RNConnectionService extends ReactContextBaseJavaModule {
                 TelecomManager.EXTRA_PHONE_ACCOUNT_HANDLE,
                 accountHandle);
         extras.putInt(
-            TelecomManager.EXTRA_START_CALL_WITH_VIDEO_STATE,
-            hasVideo
-                ? VideoProfile.STATE_BIDIRECTIONAL
-                : VideoProfile.STATE_AUDIO_ONLY);
+                TelecomManager.EXTRA_START_CALL_WITH_VIDEO_STATE,
+                hasVideo
+                        ? VideoProfile.STATE_BIDIRECTIONAL
+                        : VideoProfile.STATE_AUDIO_ONLY);
 
         ConnectionService.registerStartCallPromise(callUUID, promise);
 
@@ -145,7 +147,8 @@ class RNConnectionService extends ReactContextBaseJavaModule {
                 try {
                     tm.unregisterPhoneAccount(accountHandle);
                 } catch (Throwable tr1) {
-                    // UnsupportedOperationException: System does not support feature android.software.connectionservice
+                    // UnsupportedOperationException: System does not support feature
+                    // android.software.connectionservice
                     // was observed here. Ignore.
                 }
             }
@@ -203,11 +206,12 @@ class RNConnectionService extends ReactContextBaseJavaModule {
     /**
      * Called by the JS side to update the call's state.
      *
-     * @param callUUID - the call's UUID.
+     * @param callUUID  - the call's UUID.
      * @param callState - the map which carries info about the current call's
-     * state. See static fields in {@link ConnectionService.ConnectionImpl}
-     * prefixed with "KEY_" for the values supported by the Android
-     * implementation.
+     *                  state. See static fields in
+     *                  {@link ConnectionService.ConnectionImpl}
+     *                  prefixed with "KEY_" for the values supported by the Android
+     *                  implementation.
      */
     @ReactMethod
     public void updateCall(String callUUID, ReadableMap callState) {
@@ -223,7 +227,8 @@ class RNConnectionService extends ReactContextBaseJavaModule {
     }
 
     /**
-     * Handler for call state changes. {@code ConnectionServiceImpl} will call this handler when the
+     * Handler for call state changes. {@code ConnectionServiceImpl} will call this
+     * handler when the
      * call audio state changes.
      *
      * @param callAudioState The current call's audio state.
@@ -242,17 +247,17 @@ class RNConnectionService extends ReactContextBaseJavaModule {
      * Helper function to send an event to JavaScript.
      *
      * @param eventName {@code String} containing the event name.
-     * @param data {@code Object} optional ancillary data for the event.
+     * @param data      {@code Object} optional ancillary data for the event.
      */
     void emitEvent(
-        String eventName,
-        @Nullable Object data) {
+            String eventName,
+            @Nullable Object data) {
         ReactContext reactContext = getReactApplicationContext();
 
         if (reactContext != null) {
             reactContext
-                .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-                .emit(eventName, data);
+                    .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                    .emit(eventName, data);
         }
     }
 }

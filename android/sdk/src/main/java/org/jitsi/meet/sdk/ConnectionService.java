@@ -29,7 +29,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Jitsi Meet implementation of {@link ConnectionService}. At the time of this
+ * C-Meet implementation of {@link ConnectionService}. At the time of this
  * writing it implements only the outgoing call scenario.
  *
  * NOTE the class needs to be public, but is not part of the SDK API and should
@@ -50,27 +50,25 @@ public class ConnectionService extends android.telecom.ConnectionService {
      * {@link ConnectionRequest} which stores the {@link PhoneAccountHandle}
      * created for the call.
      */
-    static final String EXTRA_PHONE_ACCOUNT_HANDLE
-        = "org.jitsi.meet.sdk.connection_service.PHONE_ACCOUNT_HANDLE";
+    static final String EXTRA_PHONE_ACCOUNT_HANDLE = "org.jitsi.meet.sdk.connection_service.PHONE_ACCOUNT_HANDLE";
 
     /**
      * Connections mapped by call UUID.
      */
-    static private final Map<String, ConnectionImpl> connections
-            = new HashMap<>();
+    static private final Map<String, ConnectionImpl> connections = new HashMap<>();
 
     /**
      * The start call Promises mapped by call UUID.
      */
-    static private final HashMap<String, Promise> startCallPromises
-            = new HashMap<>();
+    static private final HashMap<String, Promise> startCallPromises = new HashMap<>();
 
     /**
-     * Aborts all ongoing connections. This is a last resort mechanism which forces all resources to
+     * Aborts all ongoing connections. This is a last resort mechanism which forces
+     * all resources to
      * be freed on the system in case of fatal error.
      */
     static void abortConnections() {
-        for (ConnectionImpl connection: getConnections()) {
+        for (ConnectionImpl connection : getConnections()) {
             connection.onAbort();
         }
     }
@@ -103,7 +101,7 @@ public class ConnectionService extends android.telecom.ConnectionService {
     /**
      * Registers a start call promise.
      *
-     * @param uuid - the call UUID to which the start call promise belongs to.
+     * @param uuid    - the call UUID to which the start call promise belongs to.
      * @param promise - the Promise instance to be stored for later use.
      */
     static void registerStartCallPromise(String uuid, Promise promise) {
@@ -143,7 +141,7 @@ public class ConnectionService extends android.telecom.ConnectionService {
      * {@link android.telecom.Connection#STATE_DISCONNECTED}.
      *
      * @param callUUID the call UUID which identifies the connection.
-     * @param cause disconnection reason.
+     * @param cause    disconnection reason.
      */
     static void setConnectionDisconnected(String callUUID, DisconnectCause cause) {
         ConnectionImpl connection = connections.get(callUUID);
@@ -154,8 +152,8 @@ public class ConnectionService extends android.telecom.ConnectionService {
                 connection.setOnHold();
                 // Prevents from including in the native phone calls history
                 connection.setConnectionProperties(
-                    Connection.PROPERTY_SELF_MANAGED
-                        | Connection.PROPERTY_IS_EXTERNAL_CALL);
+                        Connection.PROPERTY_SELF_MANAGED
+                                | Connection.PROPERTY_IS_EXTERNAL_CALL);
             }
             // Note that the connection is not removed from the list here, but
             // in ConnectionImpl's state changed callback. It's a safer
@@ -174,7 +172,7 @@ public class ConnectionService extends android.telecom.ConnectionService {
      * rejected or resolved.
      *
      * @param uuid the call UUID which identifies the call to which the promise
-     *        belongs to.
+     *             belongs to.
      * @return the unregistered Promise instance or <tt>null</tt> if there
      *         wasn't any for the given call UUID.
      */
@@ -185,17 +183,17 @@ public class ConnectionService extends android.telecom.ConnectionService {
     /**
      * Used to adjusts the call's state.
      *
-     * @param callUUID the call UUID which identifies the connection.
+     * @param callUUID  the call UUID which identifies the connection.
      * @param callState a map which carries the properties to be modified. See
-     *        "KEY_*" constants in {@link ConnectionImpl} for the list of keys.
+     *                  "KEY_*" constants in {@link ConnectionImpl} for the list of
+     *                  keys.
      */
     static void updateCall(String callUUID, ReadableMap callState) {
         ConnectionImpl connection = connections.get(callUUID);
 
         if (connection != null) {
             if (callState.hasKey(ConnectionImpl.KEY_HAS_VIDEO)) {
-                boolean hasVideo
-                        = callState.getBoolean(ConnectionImpl.KEY_HAS_VIDEO);
+                boolean hasVideo = callState.getBoolean(ConnectionImpl.KEY_HAS_VIDEO);
 
                 JitsiMeetLogger.i(" %s updateCall: %s hasVideo: %s", TAG, callUUID, hasVideo);
                 connection.setVideoState(
@@ -215,8 +213,8 @@ public class ConnectionService extends android.telecom.ConnectionService {
 
         connection.setConnectionProperties(Connection.PROPERTY_SELF_MANAGED);
         connection.setAddress(
-            request.getAddress(),
-            TelecomManager.PRESENTATION_UNKNOWN);
+                request.getAddress(),
+                TelecomManager.PRESENTATION_UNKNOWN);
         connection.setExtras(request.getExtras());
 
         connection.setAudioModeIsVoip(true);
@@ -230,21 +228,20 @@ public class ConnectionService extends android.telecom.ConnectionService {
         Bundle moreExtras = new Bundle();
 
         moreExtras.putParcelable(
-            EXTRA_PHONE_ACCOUNT_HANDLE,
-            Objects.requireNonNull(request.getAccountHandle(), "accountHandle"));
+                EXTRA_PHONE_ACCOUNT_HANDLE,
+                Objects.requireNonNull(request.getAccountHandle(), "accountHandle"));
         connection.putExtras(moreExtras);
 
         addConnection(connection);
 
-        Promise startCallPromise
-            = unregisterStartCallPromise(connection.getCallUUID());
+        Promise startCallPromise = unregisterStartCallPromise(connection.getCallUUID());
 
         if (startCallPromise != null) {
             JitsiMeetLogger.d(TAG + " onCreateOutgoingConnection " + connection.getCallUUID());
             startCallPromise.resolve(null);
         } else {
             JitsiMeetLogger.e(
-                TAG + " onCreateOutgoingConnection: no start call Promise for " + connection.getCallUUID());
+                    TAG + " onCreateOutgoingConnection: no start call Promise for " + connection.getCallUUID());
         }
 
         return connection;
@@ -303,22 +300,20 @@ public class ConnectionService extends android.telecom.ConnectionService {
     /**
      * Registers new {@link PhoneAccountHandle}.
      *
-     * @param context the current Android context.
-     * @param address the phone account's address. At the time of this writing
-     *        it's the call handle passed from the Java Script side.
+     * @param context  the current Android context.
+     * @param address  the phone account's address. At the time of this writing
+     *                 it's the call handle passed from the Java Script side.
      * @param callUUID the call's UUID for which the account is to be created.
-     *        It will be used as the account's id.
+     *                 It will be used as the account's id.
      * @return {@link PhoneAccountHandle} described by the given arguments.
      */
     static PhoneAccountHandle registerPhoneAccount(
             Context context, Uri address, String callUUID) {
-        PhoneAccountHandle phoneAccountHandle
-            = new PhoneAccountHandle(
-                    new ComponentName(context, ConnectionService.class),
-                    callUUID);
+        PhoneAccountHandle phoneAccountHandle = new PhoneAccountHandle(
+                new ComponentName(context, ConnectionService.class),
+                callUUID);
 
-        PhoneAccount.Builder builder
-            = PhoneAccount.builder(phoneAccountHandle, address.toString())
+        PhoneAccount.Builder builder = PhoneAccount.builder(phoneAccountHandle, address.toString())
                 .setAddress(address)
                 .setCapabilities(PhoneAccount.CAPABILITY_SELF_MANAGED |
                         PhoneAccount.CAPABILITY_VIDEO_CALLING |
@@ -327,15 +322,14 @@ public class ConnectionService extends android.telecom.ConnectionService {
 
         PhoneAccount account = builder.build();
 
-        TelecomManager telecomManager
-            = context.getSystemService(TelecomManager.class);
+        TelecomManager telecomManager = context.getSystemService(TelecomManager.class);
         telecomManager.registerPhoneAccount(account);
 
         return phoneAccountHandle;
     }
 
     /**
-     * Connection implementation for Jitsi Meet's {@link ConnectionService}.
+     * Connection implementation for C-Meet's {@link ConnectionService}.
      *
      * @author Pawel Domas
      */
@@ -421,7 +415,7 @@ public class ConnectionService extends android.telecom.ConnectionService {
         @Override
         public void onStateChanged(int state) {
             JitsiMeetLogger.d(
-                "%s onStateChanged: %s %s", TAG, Connection.stateToString(state), getCallUUID());
+                    "%s onStateChanged: %s %s", TAG, Connection.stateToString(state), getCallUUID());
 
             if (state == STATE_DISCONNECTED) {
                 removeConnection(this);
