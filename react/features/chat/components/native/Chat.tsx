@@ -7,7 +7,7 @@ import { IReduxState } from '../../../app/types';
 import { translate } from '../../../base/i18n/functions';
 import JitsiScreen from '../../../base/modal/components/JitsiScreen';
 import { TabBarLabelCounter } from '../../../mobile/navigation/components/TabBarLabelCounter';
-import { closeChat, sendMessage } from '../../actions.native';
+import { closeChat, sendMessage, addMessage } from '../../actions.native';
 import { IChatProps as AbstractProps } from '../../types';
 
 import ChatInputBar from './ChatInputBar';
@@ -85,6 +85,18 @@ class Chat extends Component<IProps> {
     _onSendMessage(text: string) {
         this.props.dispatch(sendMessage(text));
     }
+
+    onSendMessageCmeet(data: any) {
+        this.props.dispatch(addMessage(data));
+    }
+  
+    handleMessage(data: any) {
+        if (typeof data === 'object') { 
+            this.onSendMessageCmeet(data); 
+        } else {
+            this._onSendMessage(data);
+        }
+    };
 }
 
 /**

@@ -9,7 +9,7 @@ import { withPixelLineHeight } from '../../../base/styles/functions.web';
 import Tabs from '../../../base/ui/components/web/Tabs';
 import { arePollsDisabled } from '../../../conference/functions.any';
 import PollsPane from '../../../polls/components/web/PollsPane';
-import { sendMessage, setIsPollsTabFocused, toggleChat } from '../../actions.web';
+import { sendMessage, setIsPollsTabFocused, toggleChat, addMessage } from '../../actions.web';
 import { CHAT_SIZE, CHAT_TABS, SMALL_WIDTH_THRESHOLD } from '../../constants';
 import { IChatProps as AbstractProps } from '../../types';
 
@@ -169,130 +169,144 @@ const Chat = ({
     * @returns {void}
     * @type {Function}
     */
+
+
     const onSendMessage = useCallback((text: string) => {
         dispatch(sendMessage(text));
     }, []);
 
-    /**
-    * Toggles the chat window.
-    *
-    * @returns {Function}
-    */
-    const onToggleChat = useCallback(() => {
-        dispatch(toggleChat());
+    const onSendMessageCmeet = useCallback((data: string) => {
+        dispatch(addMessage(data));
     }, []);
 
-    /**
-     * Click handler for the chat sidenav.
-     *
-     * @param {KeyboardEvent} event - Esc key click to close the popup.
-     * @returns {void}
-     */
-    const onEscClick = useCallback((event: React.KeyboardEvent) => {
-        if (event.key === 'Escape' && _isOpen) {
-            event.preventDefault();
-            event.stopPropagation();
-            onToggleChat();
+    const handleMessage = (data: any) => {
+        if (typeof data === 'object') { 
+            onSendMessageCmeet(data); 
+        } else {
+            onSendMessage(data);
         }
-    }, [ _isOpen ]);
+    };
 
-    /**
-     * Change selected tab.
-     *
-     * @param {string} id - Id of the clicked tab.
-     * @returns {void}
-     */
-    const onChangeTab = useCallback((id: string) => {
-        dispatch(setIsPollsTabFocused(id !== CHAT_TABS.CHAT));
-    }, []);
+/**
+* Toggles the chat window.
+*
+* @returns {Function}
+*/
+const onToggleChat = useCallback(() => {
+    dispatch(toggleChat());
+}, []);
 
-    /**
-     * Returns a React Element for showing chat messages and a form to send new
-     * chat messages.
-     *
-     * @private
-     * @returns {ReactElement}
-     */
-    function renderChat() {
-        return (
-            <>
-                {_isPollsEnabled && renderTabs()}
-                <div
-                    aria-labelledby = { CHAT_TABS.CHAT }
-                    className = { cx(
-                        classes.chatPanel,
-                        !_isPollsEnabled && classes.chatPanelNoTabs,
-                        _isPollsTabFocused && 'hide'
-                    ) }
-                    id = { `${CHAT_TABS.CHAT}-panel` }
-                    role = 'tabpanel'
-                    tabIndex = { 0 }>
-                    <MessageContainer
-                        messages = { _messages } />
-                    <MessageRecipient />
-                    <ChatInput
-                        onSend = { onSendMessage } />
-                </div>
-                {_isPollsEnabled && (
-                    <>
-                        <div
-                            aria-labelledby = { CHAT_TABS.POLLS }
-                            className = { cx(classes.pollsPanel, !_isPollsTabFocused && 'hide') }
-                            id = { `${CHAT_TABS.POLLS}-panel` }
-                            role = 'tabpanel'
-                            tabIndex = { 0 }>
-                            <PollsPane />
-                        </div>
-                        <KeyboardAvoider />
-                    </>
-                )}
-            </>
-        );
+/**
+ * Click handler for the chat sidenav.
+ *
+ * @param {KeyboardEvent} event - Esc key click to close the popup.
+ * @returns {void}
+ */
+const onEscClick = useCallback((event: React.KeyboardEvent) => {
+    if (event.key === 'Escape' && _isOpen) {
+        event.preventDefault();
+        event.stopPropagation();
+        onToggleChat();
     }
+}, [_isOpen]);
 
-    /**
-     * Returns a React Element showing the Chat and Polls tab.
-     *
-     * @private
-     * @returns {ReactElement}
-     */
-    function renderTabs() {
-        return (
-            <Tabs
-                accessibilityLabel = { t(_isPollsEnabled ? 'chat.titleWithPolls' : 'chat.title') }
-                onChange = { onChangeTab }
-                selected = { _isPollsTabFocused ? CHAT_TABS.POLLS : CHAT_TABS.CHAT }
-                tabs = { [ {
-                    accessibilityLabel: t('chat.tabs.chat'),
-                    countBadge: _isPollsTabFocused && _nbUnreadMessages > 0 ? _nbUnreadMessages : undefined,
-                    id: CHAT_TABS.CHAT,
-                    controlsId: `${CHAT_TABS.CHAT}-panel`,
-                    label: t('chat.tabs.chat')
-                }, {
-                    accessibilityLabel: t('chat.tabs.polls'),
-                    countBadge: !_isPollsTabFocused && _nbUnreadPolls > 0 ? _nbUnreadPolls : undefined,
-                    id: CHAT_TABS.POLLS,
-                    controlsId: `${CHAT_TABS.POLLS}-panel`,
-                    label: t('chat.tabs.polls')
-                }
-                ] } />
-        );
-    }
+/**
+ * Change selected tab.
+ *
+ * @param {string} id - Id of the clicked tab.
+ * @returns {void}
+ */
+const onChangeTab = useCallback((id: string) => {
+    dispatch(setIsPollsTabFocused(id !== CHAT_TABS.CHAT));
+}, []);
 
+/**
+ * Returns a React Element for showing chat messages and a form to send new
+ * chat messages.
+ *
+ * @private
+ * @returns {ReactElement}
+ */
+function renderChat() {
     return (
-        _isOpen ? <div
-            className = { classes.container }
-            id = 'sideToolbarContainer'
-            onKeyDown = { onEscClick } >
-            <ChatHeader
-                className = { cx('chat-header', classes.chatHeader) }
-                isPollsEnabled = { _isPollsEnabled }
-                onCancel = { onToggleChat } />
-            {_showNamePrompt
-                ? <DisplayNameForm isPollsEnabled = { _isPollsEnabled } />
-                : renderChat()}
-        </div> : null
+        <>
+            {_isPollsEnabled && renderTabs()}
+            <div
+                aria-labelledby={CHAT_TABS.CHAT}
+                className={cx(
+                    classes.chatPanel,
+                    !_isPollsEnabled && classes.chatPanelNoTabs,
+                    _isPollsTabFocused && 'hide'
+                )}
+                id={`${CHAT_TABS.CHAT}-panel`}
+                role='tabpanel'
+                tabIndex={0}>
+                <MessageContainer
+                    messages={_messages} />
+                <MessageRecipient />
+                <ChatInput
+                    onSend={handleMessage} />
+            </div>
+            {_isPollsEnabled && (
+                <>
+                    <div
+                        aria-labelledby={CHAT_TABS.POLLS}
+                        className={cx(classes.pollsPanel, !_isPollsTabFocused && 'hide')}
+                        id={`${CHAT_TABS.POLLS}-panel`}
+                        role='tabpanel'
+                        tabIndex={0}>
+                        <PollsPane />
+                    </div>
+                    <KeyboardAvoider />
+                </>
+            )}
+        </>
     );
+}
+
+/**
+ * Returns a React Element showing the Chat and Polls tab.
+ *
+ * @private
+ * @returns {ReactElement}
+ */
+function renderTabs() {
+    return (
+        <Tabs
+            accessibilityLabel={t(_isPollsEnabled ? 'chat.titleWithPolls' : 'chat.title')}
+            onChange={onChangeTab}
+            selected={_isPollsTabFocused ? CHAT_TABS.POLLS : CHAT_TABS.CHAT}
+            tabs={[{
+                accessibilityLabel: t('chat.tabs.chat'),
+                countBadge: _isPollsTabFocused && _nbUnreadMessages > 0 ? _nbUnreadMessages : undefined,
+                id: CHAT_TABS.CHAT,
+                controlsId: `${CHAT_TABS.CHAT}-panel`,
+                label: t('chat.tabs.chat')
+            }, {
+                accessibilityLabel: t('chat.tabs.polls'),
+                countBadge: !_isPollsTabFocused && _nbUnreadPolls > 0 ? _nbUnreadPolls : undefined,
+                id: CHAT_TABS.POLLS,
+                controlsId: `${CHAT_TABS.POLLS}-panel`,
+                label: t('chat.tabs.polls')
+            }
+            ]} />
+    );
+}
+
+return (
+    _isOpen ? <div
+        className={classes.container}
+        id='sideToolbarContainer'
+        onKeyDown={onEscClick} >
+        <ChatHeader
+            className={cx('chat-header', classes.chatHeader)}
+            isPollsEnabled={_isPollsEnabled}
+            onCancel={onToggleChat} />
+        {_showNamePrompt
+            ? <DisplayNameForm isPollsEnabled={_isPollsEnabled} />
+            : renderChat()}
+    </div> : null
+);
 };
 
 /**
