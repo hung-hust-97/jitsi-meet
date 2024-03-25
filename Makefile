@@ -32,6 +32,7 @@ compile:
 
 clean:
 	rm -fr $(BUILD_DIR)
+	service nginx restart
 
 .NOTPARALLEL:
 deploy: deploy-init deploy-appbundle deploy-rnnoise-binary deploy-excalidraw deploy-tflite deploy-meet-models deploy-lib-jitsi-meet deploy-olm deploy-tf-wasm deploy-css deploy-local deploy-face-landmarks
