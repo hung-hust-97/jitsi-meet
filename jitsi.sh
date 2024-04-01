@@ -6,6 +6,10 @@
 HOSTNAME="meet.cmcati.vn"
 IP=$(ip addr show ens160 | grep inet | grep -v inet6 | awk '{print $2}' | cut -d'/' -f1)
 
+echo "############################ UNINSTALL JITSI MEET ##################################"
+
+sudo apt purge jigasi jitsi-meet jitsi-meet-web-config jitsi-meet-prosody jitsi-meet-turnserver jitsi-meet-web jicofo jitsi-videobridge2
+
 echo "############################ CHECK IP ##################################"
 
 if [ -z "$IP_ADDR" ]; then
