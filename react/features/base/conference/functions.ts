@@ -188,8 +188,8 @@ export function getConferenceName(stateful: IStateful): string {
     const { callDisplayName } = state['features/base/config'];
     const { localSubject, pendingSubjectChange, room, subject } = getConferenceState(state);
 
-    return (pendingSubjectChange
-        || localSubject
+    return (localSubject
+        || pendingSubjectChange
         || subject
         || callDisplayName
         || callee?.name

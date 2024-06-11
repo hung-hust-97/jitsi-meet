@@ -7,13 +7,12 @@ const contentColumn = {
 };
 
 const notification = {
-    display: 'flex',
     backgroundColor: BaseTheme.palette.ui10,
     borderRadius: BaseTheme.shape.borderRadius,
     borderLeftColor: BaseTheme.palette.link01Active,
-    borderLeftWidth: 4,
+    borderLeftWidth: BaseTheme.spacing[1],
+    display: 'flex',
     flexDirection: 'row',
-    maxHeight: 120,
     height: 'auto',
     marginBottom: BaseTheme.spacing[2],
     marginHorizontal: BaseTheme.spacing[2],
@@ -43,20 +42,20 @@ export default {
      */
 
     contentContainer: {
-        marginTop: BaseTheme.spacing[2]
+        marginHorizontal: BaseTheme.spacing[2]
     },
 
     contentText: {
         color: BaseTheme.palette.text04,
-        marginLeft: BaseTheme.spacing[6],
+        marginLeft: BaseTheme.spacing[4],
         marginTop: BaseTheme.spacing[1]
     },
 
     contentTextTitle: {
         color: BaseTheme.palette.text04,
-        marginLeft: BaseTheme.spacing[6],
         fontWeight: 'bold',
-        marginTop: BaseTheme.spacing[1]
+        marginLeft: BaseTheme.spacing[4],
+        marginTop: BaseTheme.spacing[2]
     },
 
     /**
@@ -90,9 +89,8 @@ export default {
     },
 
     iconContainer: {
-        left: BaseTheme.spacing[1],
         position: 'absolute',
-        top: BaseTheme.spacing[2]
+        top: 12
     },
 
     btn: {
@@ -102,7 +100,7 @@ export default {
     btnContainer: {
         display: 'flex',
         flexDirection: 'row',
-        marginLeft: BaseTheme.spacing[1]
+        marginLeft: BaseTheme.spacing[3]
     },
 
     withToolbox: {

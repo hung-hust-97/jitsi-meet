@@ -14,7 +14,7 @@ import { registerSound, unregisterSound } from '../base/sounds/actions';
 import { isInBreakoutRoom } from '../breakout-rooms/functions';
 import { isEnabled as isDropboxEnabled } from '../dropbox/functions';
 import { extractFqnFromPath } from '../dynamic-branding/functions.any';
-import { isRecorderTranscriptionsRunning } from '../transcribing/functions';
+import { canAddTranscriber, isRecorderTranscriptionsRunning } from '../transcribing/functions';
 
 import LocalRecordingManager from './components/Recording/LocalRecordingManager';
 import {
@@ -208,7 +208,7 @@ export function canStopRecording(state: IReduxState) {
 export function shouldAutoTranscribeOnRecord(state: IReduxState) {
     const { transcription } = state['features/base/config'];
 
-    return transcription?.autoTranscribeOnRecord ?? true;
+    return (transcription?.autoTranscribeOnRecord ?? true) && canAddTranscriber(state);
 }
 
 /**
@@ -253,12 +253,12 @@ export function getRecordButtonProps(state: IReduxState) {
     const localRecordingEnabled = !localRecording?.disable && supportsLocalRecording();
 
     const dropboxEnabled = isDropboxEnabled(state);
-    const recordingEnabled = recordingService?.enabled || localRecordingEnabled || dropboxEnabled;
+    const recordingEnabled = recordingService?.enabled || dropboxEnabled;
 
-    if (isModerator) {
+    if (localRecordingEnabled) {
+        visible = true;
+    } else if (isModerator) {
         visible = recordingEnabled ? isJwtFeatureEnabled(state, 'recording', true) : false;
-    } else {
-        visible = navigator.product !== 'ReactNative' && localRecordingEnabled;
     }
 
     // disable the button if the livestreaming is running.

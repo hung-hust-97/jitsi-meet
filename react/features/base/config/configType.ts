@@ -396,6 +396,7 @@ export interface IConfig {
     hideDominantSpeakerBadge?: boolean;
     hideEmailInSettings?: boolean;
     hideLobbyButton?: boolean;
+    hideLoginButton?: boolean;
     hideParticipantsStats?: boolean;
     hideRecordingLabel?: boolean;
     hosts?: {
@@ -440,6 +441,7 @@ export interface IConfig {
     };
     localSubject?: string;
     locationURL?: URL;
+    mainToolbarButtons?: Array<Array<string>>;
     maxFullResolutionParticipants?: number;
     microsoftApiApplicationClientID?: string;
     moderatedRoomServiceUrl?: string;
@@ -496,10 +498,12 @@ export interface IConfig {
     };
     recordingSharingUrl?: string;
     recordings?: {
+        recordAudioAndVideo?: boolean;
         showPrejoinWarning?: boolean;
         suggestRecording?: boolean;
     };
     remoteVideoMenu?: {
+        disableDemote?: boolean;
         disableGrantModerator?: boolean;
         disableKick?: boolean;
         disablePrivateChat?: boolean;
@@ -540,7 +544,6 @@ export interface IConfig {
         assumeBandwidth?: boolean;
         disableE2EE?: boolean;
         dumpTranscript?: boolean;
-        mobileXmppWsThreshold?: number;
         noAutoPlayVideo?: boolean;
         p2pTestMode?: boolean;
         skipInterimTranscriptions?: boolean;
