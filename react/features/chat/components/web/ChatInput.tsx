@@ -102,7 +102,7 @@ class ChatInput extends Component<IProps, IState> {
         };
         this._onConnectWS();
     }
-    // Update WS
+    // oninit method when crete component
     _oninit() {
         this.user = new LocalStorageHandle("features/base/settings").getByKey()
         if (this.user.hasOwnProperty("id") || !this.user.id) {
@@ -110,7 +110,7 @@ class ChatInput extends Component<IProps, IState> {
         }
         this.meetingId = window.location.href.split('/').at(-1)
     }
-
+    // handle connect ws server 
     async _onConnectWS() {
         this.stompClient.onConnect = (frame: any) => {
             console.log("Connected to WebSocket");
@@ -118,7 +118,7 @@ class ChatInput extends Component<IProps, IState> {
         };
         this.stompClient.activate();
     }
-
+    // handle message server socket return 
     _onSendChatCMeet(content: String) {
         if (this._isValidUUID(this.meetingId)) {
             this._publicStomp(CMEET_ENV.public, {
@@ -133,6 +133,7 @@ class ChatInput extends Component<IProps, IState> {
             })
         }
     }
+    // method support invalid UUID type
     _isValidUUID(arg: any) {
         const uuidRegex = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
         if (arg instanceof Array) {
@@ -140,6 +141,7 @@ class ChatInput extends Component<IProps, IState> {
         }
         return uuidRegex.test(arg)
     }
+    // send message when user click btn sent
     _publicStomp(destination: String, body: any) {
         this.stompClient.publish({
             destination: destination,
