@@ -102,7 +102,7 @@ class ChatInput extends Component<IProps, IState> {
         };
         this._onConnectWS();
     }
-    // Update WS
+    // oninit method register socket
     _oninit() {
         this.user = new LocalStorageHandle("features/base/settings").getByKey()
         if (this.user.hasOwnProperty("id") || !this.user.id) {
@@ -110,7 +110,7 @@ class ChatInput extends Component<IProps, IState> {
         }
         this.meetingId = window.location.href.split('/').at(-1)
     }
-
+    // method connect server ws
     async _onConnectWS() {
         this.stompClient.onConnect = (frame: any) => {
             console.log("Connected to WebSocket");
@@ -118,7 +118,7 @@ class ChatInput extends Component<IProps, IState> {
         };
         this.stompClient.activate();
     }
-
+    // handle message when server socket return 
     _onSendChatCMeet(content: String) {
         if (this._isValidUUID(this.meetingId)) {
             this._publicStomp(CMEET_ENV.public, {
@@ -133,6 +133,7 @@ class ChatInput extends Component<IProps, IState> {
             })
         }
     }
+    // method support valid UUID type
     _isValidUUID(arg: any) {
         const uuidRegex = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
         if (arg instanceof Array) {
@@ -140,12 +141,14 @@ class ChatInput extends Component<IProps, IState> {
         }
         return uuidRegex.test(arg)
     }
+    //method public mesage affter handle all field in form data
     _publicStomp(destination: String, body: any) {
         this.stompClient.publish({
             destination: destination,
             body: JSON.stringify(body),
         });
     }
+    // method handle message : set field in form (server ws , jitsi chat)
     _onHandleMessage() {
         this.stompClient.subscribe(CMEET_ENV.subrice, ({ body }: any) => {
             const data = JSON.parse(body);
