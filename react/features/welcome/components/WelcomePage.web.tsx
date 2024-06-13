@@ -11,7 +11,6 @@ import CalendarList from "../../calendar-sync/components/CalendarList.web";
 import RecentList from "../../recent-list/components/RecentList.web";
 import SettingsButton from "../../settings/components/web/SettingsButton";
 import { SETTINGS_TABS } from "../../settings/constants";
-
 import { AbstractWelcomePage, IProps, _mapStateToProps } from "./AbstractWelcomePage";
 import Tabs from "./Tabs";
 
@@ -208,7 +207,7 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                                 <div className="settings-toolbar-content" ref={this._setAdditionalToolbarContentRef} />
                             ) : null}
                         </div>
-                        <h1 className="header-text-title">C-Meet</h1>
+                        <h1 className="header-text-title">{env.APP_NAME}</h1>
                         <span className="header-text-subtitle">{t("welcomepage.headerSubtitle")}</span>
                         <div id="enter_room">
                             <div className="join-meeting-container">
