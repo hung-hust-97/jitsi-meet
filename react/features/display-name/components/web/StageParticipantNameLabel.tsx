@@ -1,54 +1,54 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { makeStyles } from 'tss-react/mui';
-import Typed from 'typed.js';
-import SockJS from 'sockjs-client';
-import { Client } from '@stomp/stompjs';
+import React, { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
+import { makeStyles } from "tss-react/mui";
+import Typed from "typed.js";
+import SockJS from "sockjs-client";
+import { Client } from "@stomp/stompjs";
 
-import { IReduxState } from '../../../app/types';
-import { isDisplayNameVisible } from '../../../base/config/functions.any';
+import { IReduxState } from "../../../app/types";
+import { isDisplayNameVisible } from "../../../base/config/functions.any";
 import {
     getLocalParticipant,
     getParticipantDisplayName,
-    isWhiteboardParticipant
-} from '../../../base/participants/functions';
-import { withPixelLineHeight } from '../../../base/styles/functions.web';
-import { getLargeVideoParticipant } from '../../../large-video/functions';
-import { isToolboxVisible } from '../../../toolbox/functions.web';
-import { isLayoutTileView } from '../../../video-layout/functions.web';
+    isWhiteboardParticipant,
+} from "../../../base/participants/functions";
+import { withPixelLineHeight } from "../../../base/styles/functions.web";
+import { getLargeVideoParticipant } from "../../../large-video/functions";
+import { isToolboxVisible } from "../../../toolbox/functions.web";
+import { isLayoutTileView } from "../../../video-layout/functions.web";
 
-import { CMEET_ENV } from '../../../chat/ENV';
-import DisplayNameBadge from './DisplayNameBadge';
+import { CMEET_ENV } from "../../../chat/ENV";
+import DisplayNameBadge from "./DisplayNameBadge";
 
-const useStyles = makeStyles()(theme => ({
+const useStyles = makeStyles()((theme) => ({
     badgeContainer: {
         ...withPixelLineHeight(theme.typography.bodyShortRegularLarge),
-        alignItems: 'center',
-        display: 'inline-flex',
-        justifyContent: 'center',
+        alignItems: "center",
+        display: "inline-flex",
+        justifyContent: "center",
         marginBottom: theme.spacing(7),
-        transition: 'margin-bottom 0.3s',
-        pointerEvents: 'none',
-        position: 'absolute',
+        transition: "margin-bottom 0.3s",
+        pointerEvents: "none",
+        position: "absolute",
         bottom: 0,
         left: 0,
-        width: '100%',
-        zIndex: 1
+        width: "100%",
+        zIndex: 1,
     },
     containerElevated: {
-        marginBottom: theme.spacing(12)
-    }
+        marginBottom: theme.spacing(12),
+    },
 }));
 
 const StageParticipantNameLabel = () => {
     const { classes, cx } = useStyles();
     const typedElementRef = useRef(null);
     const [stompClient, setStompClient] = useState<Client | null>(null);
-    const [meetingId, setMeetingId] = useState('');
+    const [meetingId, setMeetingId] = useState("");
 
     const largeVideoParticipant = useSelector(getLargeVideoParticipant);
     const selectedId = largeVideoParticipant?.id;
-    const nameToDisplay = useSelector((state: IReduxState) => getParticipantDisplayName(state, selectedId ?? ''));
+    const nameToDisplay = useSelector((state: IReduxState) => getParticipantDisplayName(state, selectedId ?? ""));
 
     const localParticipant = useSelector(getLocalParticipant);
     const localId = localParticipant?.id;
@@ -60,20 +60,21 @@ const StageParticipantNameLabel = () => {
     const [username, setUsername] = useState("");
 
     useEffect(() => {
-        const currentMeetingId = window.location.href.split('/').at(-1) || '';
+        const currentMeetingId = window.location.href.split("/").at(-1) || "";
         setMeetingId(currentMeetingId);
-
+        console.log("id", currentMeetingId);
         const client = new Client({
-            webSocketFactory: () => new SockJS(CMEET_ENV.urlWS)
+            webSocketFactory: () => new SockJS(CMEET_ENV.urlWS),
         });
         client.onConnect = () => {
-            client.subscribe(CMEET_ENV.subriceCaption + '/' + currentMeetingId, ({ body }) => {
+            client.subscribe(CMEET_ENV.subriceCaption + "/" + currentMeetingId, ({ body }) => {
                 const data = JSON.parse(body);
+                console.log("data", data);
                 const { caption, username } = data;
-                if (username) setUsername("Đại biểu : " + username)
+                if (username) setUsername("Đại biểu : " + username);
                 if (caption) {
-                    setTypedStrings(prevStrings => [...prevStrings, caption]);
-                    console.log("setTypedStrings", typedStrings)
+                    setTypedStrings((prevStrings) => [...prevStrings, caption]);
+                    console.log("setTypedStrings", typedStrings);
                 }
             });
         };
@@ -84,8 +85,6 @@ const StageParticipantNameLabel = () => {
             client.deactivate();
         };
     }, []);
-
-
 
     useEffect(() => {
         if (typedElementRef.current) {
@@ -104,7 +103,7 @@ const StageParticipantNameLabel = () => {
         return (
             <div
                 className={cx(
-                    'stage-participant-label',
+                    "stage-participant-label",
                     classes.badgeContainer,
                     toolboxVisible && classes.containerElevated
                 )}

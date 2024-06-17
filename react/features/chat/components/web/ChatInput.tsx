@@ -1,26 +1,25 @@
-import React, { Component, RefObject } from 'react';
-import { WithTranslation } from 'react-i18next';
-import { connect } from 'react-redux';
+import React, { Component, RefObject } from "react";
+import { WithTranslation } from "react-i18next";
+import { connect } from "react-redux";
 
-import { Client } from '@stomp/stompjs';
-import SockJS from 'sockjs-client';
-import { v4 as uuidV4 } from 'uuid';
-import { IReduxState, IStore } from '../../../app/types';
-import { isMobileBrowser } from '../../../base/environment/utils';
-import { translate } from '../../../base/i18n/functions';
-import { IconFaceSmile, IconSend } from '../../../base/icons/svg';
-import Button from '../../../base/ui/components/web/Button';
-import Input from '../../../base/ui/components/web/Input';
+import { Client } from "@stomp/stompjs";
+import SockJS from "sockjs-client";
+import { v4 as uuidV4 } from "uuid";
+import { IReduxState, IStore } from "../../../app/types";
+import { isMobileBrowser } from "../../../base/environment/utils";
+import { translate } from "../../../base/i18n/functions";
+import { IconFaceSmile, IconSend } from "../../../base/icons/svg";
+import Button from "../../../base/ui/components/web/Button";
+import Input from "../../../base/ui/components/web/Input";
 import { CMEET_ENV } from "../../ENV";
-import { LocalStorageHandle } from '../../LocalStorageHandler';
-import { MESSAGE_TYPE_REMOTE } from '../../constants';
-import { areSmileysDisabled } from '../../functions';
-import SmileysPanel from './SmileysPanel';
+import { LocalStorageHandle } from "../../LocalStorageHandler";
+import { MESSAGE_TYPE_REMOTE } from "../../constants";
+import { areSmileysDisabled } from "../../functions";
+import SmileysPanel from "./SmileysPanel";
 /**
  * The type of the React {@code Component} props of {@link ChatInput}.
  */
 interface IProps extends WithTranslation {
-
     /**
      * Whether chat emoticons are disabled.
      */
@@ -34,7 +33,7 @@ interface IProps extends WithTranslation {
     /**
      * Invoked to send chat messages.
      */
-    dispatch: IStore['dispatch'];
+    dispatch: IStore["dispatch"];
 
     /**
      * Callback to invoke on message send.
@@ -46,7 +45,6 @@ interface IProps extends WithTranslation {
  * The type of the React {@code Component} state of {@link ChatInput}.
  */
 interface IState {
-
     /**
      * User provided nickname when the input text is provided in the view.
      */
@@ -70,8 +68,8 @@ class ChatInput extends Component<IProps, IState> {
     _textArea?: RefObject<HTMLTextAreaElement>;
 
     state = {
-        message: '',
-        showSmileysPanel: false
+        message: "",
+        showSmileysPanel: false,
     };
 
     stompClient: any;
@@ -95,7 +93,7 @@ class ChatInput extends Component<IProps, IState> {
         this._onSmileySelect = this._onSmileySelect.bind(this);
         this._onSubmitMessage = this._onSubmitMessage.bind(this);
         this._toggleSmileysPanel = this._toggleSmileysPanel.bind(this);
-        this._oninit()
+        this._oninit();
         this.stompClient = new Client();
         this.stompClient.webSocketFactory = () => {
             return new SockJS(CMEET_ENV.urlWS);
@@ -104,21 +102,21 @@ class ChatInput extends Component<IProps, IState> {
     }
     // oninit method when crete component
     _oninit() {
-        this.user = new LocalStorageHandle("features/base/settings").getByKey()
+        this.user = new LocalStorageHandle("features/base/settings").getByKey();
         if (this.user.hasOwnProperty("id") || !this.user.id) {
             this.user.id = uuidV4();
         }
-        this.meetingId = window.location.href.split('/').at(-1)
+        this.meetingId = window.location.href.split("/").at(-1);
     }
-    // handle connect ws server 
+    // handle connect ws server
     async _onConnectWS() {
         this.stompClient.onConnect = (frame: any) => {
             console.log("Connected to WebSocket");
-            this._onHandleMessage()
+            this._onHandleMessage();
         };
         this.stompClient.activate();
     }
-    // handle message server socket return 
+    // handle message server socket return
     _onSendChatCMeet(content: String) {
         if (this._isValidUUID(this.meetingId)) {
             this._publicStomp(CMEET_ENV.public, {
@@ -130,16 +128,16 @@ class ChatInput extends Component<IProps, IState> {
                 avatar: CMEET_ENV.avatar,
                 fileExtension: null,
                 filePath: null,
-            })
+            });
         }
     }
     // method support invalid UUID type
     _isValidUUID(arg: any) {
         const uuidRegex = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
         if (arg instanceof Array) {
-            return arg.every(x => uuidRegex.test(x))
+            return arg.every((x) => uuidRegex.test(x));
         }
-        return uuidRegex.test(arg)
+        return uuidRegex.test(arg);
     }
     // send message when user click btn sent
     _publicStomp(destination: String, body: any) {
@@ -148,11 +146,12 @@ class ChatInput extends Component<IProps, IState> {
             body: JSON.stringify(body),
         });
     }
+    // method handle message : set field in form (server ws , jitsi chat)
     _onHandleMessage() {
         this.stompClient.subscribe(CMEET_ENV.subrice, ({ body }: any) => {
             const data = JSON.parse(body);
             const { userId, meetingId } = data;
-            console.log("userId, meetingId", userId, meetingId)
+            console.log("userId, meetingId", userId, meetingId);
             if (userId && meetingId && data.meetingId == meetingId && this.user.id != userId) {
                 this.props.onSend({
                     displayName: data.sender,
@@ -162,9 +161,9 @@ class ChatInput extends Component<IProps, IState> {
                     message: data.content,
                     privateMessage: false,
                     lobbyChat: false,
-                    recipient: '', //
+                    recipient: "", //
                     timestamp: Date.now(),
-                    isReaction: false
+                    isReaction: false,
                 });
             }
         });
@@ -203,36 +202,35 @@ class ChatInput extends Component<IProps, IState> {
      */
     render() {
         return (
-            <div className={`chat-input-container${this.state.message.trim().length ? ' populated' : ''}`}>
-                <div id='chat-input' >
+            <div className={`chat-input-container${this.state.message.trim().length ? " populated" : ""}`}>
+                <div id="chat-input">
                     {!this.props._areSmileysDisabled && this.state.showSmileysPanel && (
-                        <div
-                            className='smiley-input'>
-                            <div
-                                className='smileys-panel' >
-                                <SmileysPanel
-                                    onSmileySelect={this._onSmileySelect} />
+                        <div className="smiley-input">
+                            <div className="smileys-panel">
+                                <SmileysPanel onSmileySelect={this._onSmileySelect} />
                             </div>
                         </div>
                     )}
                     <Input
-                        className='chat-input'
+                        className="chat-input"
                         icon={this.props._areSmileysDisabled ? undefined : IconFaceSmile}
                         iconClick={this._toggleSmileysPanel}
-                        id='chat-input-messagebox'
+                        id="chat-input-messagebox"
                         maxRows={5}
                         onChange={this._onMessageChange}
                         onKeyPress={this._onDetectSubmit}
-                        placeholder={this.props.t('chat.messagebox')}
+                        placeholder={this.props.t("chat.messagebox")}
                         ref={this._textArea}
                         textarea={true}
-                        value={this.state.message} />
+                        value={this.state.message}
+                    />
                     <Button
-                        accessibilityLabel={this.props.t('chat.sendButton')}
+                        accessibilityLabel={this.props.t("chat.sendButton")}
                         disabled={!this.state.message.trim()}
                         icon={IconSend}
                         onClick={this._onSubmitMessage}
-                        size={isMobileBrowser() ? 'large' : 'medium'} />
+                        size={isMobileBrowser() ? "large" : "medium"}
+                    />
                 </div>
             </div>
         );
@@ -257,11 +255,10 @@ class ChatInput extends Component<IProps, IState> {
         const trimmed = this.state.message.trim();
         if (trimmed) {
             this.props.onSend(trimmed);
-            this._onSendChatCMeet(trimmed)
-            this.setState({ message: '' });
+            this._onSendChatCMeet(trimmed);
+            this.setState({ message: "" });
             this._focus();
         }
-
     }
 
     /**
@@ -285,9 +282,7 @@ class ChatInput extends Component<IProps, IState> {
             return;
         }
 
-        if (event.key === 'Enter'
-            && event.shiftKey === false
-            && event.ctrlKey === false) {
+        if (event.key === "Enter" && event.shiftKey === false && event.ctrlKey === false) {
             event.preventDefault();
             event.stopPropagation();
 
@@ -318,11 +313,11 @@ class ChatInput extends Component<IProps, IState> {
         if (smileyText) {
             this.setState({
                 message: `${this.state.message} ${smileyText}`,
-                showSmileysPanel: false
+                showSmileysPanel: false,
             });
         } else {
             this.setState({
-                showSmileysPanel: false
+                showSmileysPanel: false,
             });
         }
 
@@ -353,11 +348,11 @@ class ChatInput extends Component<IProps, IState> {
  * }}
  */
 const mapStateToProps = (state: IReduxState) => {
-    const { privateMessageRecipient } = state['features/chat'];
+    const { privateMessageRecipient } = state["features/chat"];
 
     return {
         _areSmileysDisabled: areSmileysDisabled(state),
-        _privateMessageRecipientId: privateMessageRecipient?.id
+        _privateMessageRecipientId: privateMessageRecipient?.id,
     };
 };
 
