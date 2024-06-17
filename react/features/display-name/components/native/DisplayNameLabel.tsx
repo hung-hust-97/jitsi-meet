@@ -1,18 +1,17 @@
-import * as React from 'react';
-import { Text, TextStyle, View, ViewStyle } from 'react-native';
-import { connect } from 'react-redux';
+import * as React from "react";
+import { Text, TextStyle, View, ViewStyle } from "react-native";
+import { connect } from "react-redux";
 
-import { IReduxState } from '../../../app/types';
+import { IReduxState } from "../../../app/types";
 import {
     getParticipantById,
     getParticipantDisplayName,
-    isScreenShareParticipant
-} from '../../../base/participants/functions';
+    isScreenShareParticipant,
+} from "../../../base/participants/functions";
 
-import styles from './styles';
+import styles from "./styles";
 
 interface IProps {
-
     /**
      * The name of the participant to render.
      */
@@ -49,13 +48,10 @@ class DisplayNameLabel extends React.Component<IProps> {
         }
 
         return (
-            <View
-                style = { (this.props.contained ? styles.displayNamePadding : styles.displayNameBackdrop
-                    ) as ViewStyle }>
-                <Text
-                    numberOfLines = { 1 }
-                    style = { styles.displayNameText as TextStyle }>
-                    { this.props._participantName }
+            <View style={(this.props.contained ? styles.displayNamePadding : styles.displayNameBackdrop) as ViewStyle}>
+                <Text numberOfLines={1} style={styles.displayNameText as TextStyle}>
+                    {/* { this.props._participantName } */}
+                    tuấn
                 </Text>
             </View>
         );
@@ -70,12 +66,15 @@ class DisplayNameLabel extends React.Component<IProps> {
  * @returns {IProps}
  */
 function _mapStateToProps(state: IReduxState, ownProps: Partial<IProps>) {
-    const participant = getParticipantById(state, ownProps.participantId ?? '');
+    const participant = getParticipantById(state, ownProps.participantId ?? "");
 
     return {
-        _participantName: getParticipantDisplayName(state, ownProps.participantId ?? ''),
-        _render: Boolean(participant && (!participant?.local || ownProps.contained)
-            && (!participant?.fakeParticipant || isScreenShareParticipant(participant)))
+        _participantName: getParticipantDisplayName(state, ownProps.participantId ?? ""),
+        _render: Boolean(
+            participant &&
+                (!participant?.local || ownProps.contained) &&
+                (!participant?.fakeParticipant || isScreenShareParticipant(participant))
+        ),
     };
 }
 
