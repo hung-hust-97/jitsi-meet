@@ -149,8 +149,12 @@ class ParticipantView extends Component<IProps> {
             <View
                 pointerEvents = 'box-none'
                 style = { containerStyle as ViewStyle }>
-                <Text style = { styles.connectionInfoText as TextStyle }>
+                {/* <Text style = { styles.connectionInfoText as TextStyle }>
                     { t('connection.LOW_BANDWIDTH', { displayName }) }
+                </Text> */}
+
+                <Text style = { styles.connectionInfoText as TextStyle }>
+                    { t('connection.LOW_BANDWIDTH', "Long") }
                 </Text>
             </View>
         );
