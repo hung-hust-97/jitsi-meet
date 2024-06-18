@@ -149,12 +149,8 @@ class ParticipantView extends Component<IProps> {
             <View
                 pointerEvents = 'box-none'
                 style = { containerStyle as ViewStyle }>
-                {/* <Text style = { styles.connectionInfoText as TextStyle }>
-                    { t('connection.LOW_BANDWIDTH', { displayName }) }
-                </Text> */}
-
                 <Text style = { styles.connectionInfoText as TextStyle }>
-                    { t('connection.LOW_BANDWIDTH', "Long") }
+                    { t('connection.LOW_BANDWIDTH', { displayName }) }
                 </Text>
             </View>
         );
@@ -239,7 +235,8 @@ function _mapStateToProps(state: IReduxState, ownProps: any) {
     return {
         _isConnectionInactive: isTrackStreamingStatusInactive(videoTrack),
         _isSharedVideoParticipant: isSharedVideoParticipant(participant),
-        _participantName: getParticipantDisplayName(state, participantId),
+        //_participantName: getParticipantDisplayName(state, participantId),
+        _participantName: "Long",
         _renderVideo: shouldRenderParticipantVideo(state, participantId) && !disableVideo,
         _videoTrack: videoTrack
     };
