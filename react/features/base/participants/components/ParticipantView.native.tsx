@@ -235,8 +235,7 @@ function _mapStateToProps(state: IReduxState, ownProps: any) {
     return {
         _isConnectionInactive: isTrackStreamingStatusInactive(videoTrack),
         _isSharedVideoParticipant: isSharedVideoParticipant(participant),
-        //_participantName: getParticipantDisplayName(state, participantId),
-        _participantName: "Long",
+        _participantName: getParticipantDisplayName(state, participantId),
         _renderVideo: shouldRenderParticipantVideo(state, participantId) && !disableVideo,
         _videoTrack: videoTrack
     };

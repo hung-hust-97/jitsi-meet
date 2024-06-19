@@ -404,14 +404,14 @@ var config = {
     // autoCaptionOnRecord: false,
 
     // Transcription options.
-    // transcription: {
+    //transcription: {
     //     // Whether the feature should be enabled or not.
-    //     enabled: false,
+    //     enabled: true,
 
     //     // Translation languages.
     //     // Available languages can be found in
     //     // ./src/react/features/transcribing/translation-languages.json.
-    //     translationLanguages: ['en', 'es', 'fr', 'ro'],
+    //     translationLanguages: ['en-US', 'es'],
 
     //     // Important languages to show on the top of the language list.
     //     translationLanguagesHead: ['en'],
@@ -430,8 +430,8 @@ var config = {
     //     preferredLanguage: 'en-US',
 
     //     // Enables automatic turning on transcribing when recording is started
-    //     autoTranscribeOnRecord: false,
-    // },
+    //     autoTranscribeOnRecord: true,
+    //},
 
     // Misc
 
