@@ -78,7 +78,7 @@ const StageParticipantNameLabel = () => {
             //         console.log("setTypedStrings", typedStrings);
             //     }
             // });
-            client.subscribe(`/topic/speech-to-text/predict-data/0369b5eb-9f5b-40f7-861d-a3ebb5ac54f1`, ({ body }) => {
+            client.subscribe(`/topic/speech-to-text/predict-data/2dd4b550-14b1-42c3-9e93-d9867bdff8b8`, ({ body }) => {
                 const data = JSON.parse(body);
                 setUsername("Đại biểu Test");
                 if (data.data.predict_segment) {
