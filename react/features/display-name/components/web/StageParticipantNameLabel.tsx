@@ -64,18 +64,32 @@ const StageParticipantNameLabel = () => {
         setMeetingId(currentMeetingId);
         console.log("id", currentMeetingId);
         const client = new Client({
-            webSocketFactory: () => new SockJS(CMEET_ENV.urlWS),
+            // webSocketFactory: () => new SockJS(CMEET_ENV.urlWS),
+            webSocketFactory: () => new SockJS(CMEET_ENV.urlWSC_Meet),
         });
         client.onConnect = () => {
-            client.subscribe(CMEET_ENV.subriceCaption + "/" + currentMeetingId, ({ body }) => {
+            // client.subscribe(CMEET_ENV.subriceCaption + "/" + currentMeetingId, ({ body }) => {
+            //     const data = JSON.parse(body);
+            //     console.log("data", data);
+            //     const { caption, username } = data;
+            //     if (username) setUsername("Đại biểu : " + username);
+            //     if (caption) {
+            //         setTypedStrings((prevStrings) => [...prevStrings, caption]);
+            //         console.log("setTypedStrings", typedStrings);
+            //     }
+            // });
+            client.subscribe(`/topic/speech-to-text/predict-data/0369b5eb-9f5b-40f7-861d-a3ebb5ac54f1`, ({ body }) => {
                 const data = JSON.parse(body);
-                console.log("data", data);
-                const { caption, username } = data;
-                if (username) setUsername("Đại biểu : " + username);
-                if (caption) {
-                    setTypedStrings((prevStrings) => [...prevStrings, caption]);
-                    console.log("setTypedStrings", typedStrings);
+                setUsername("Đại biểu Test");
+                if (data.data.predict_segment) {
+                    setTypedStrings((prevStrings) => [...prevStrings, data.data.predict_segment]);
                 }
+                // const { caption, username } = data;
+                // if (username) setUsername("Đại biểu : " + username);
+                // if (caption) {
+                //     setTypedStrings((prevStrings) => [...prevStrings, caption]);
+                //     console.log("setTypedStrings", typedStrings);
+                // }
             });
         };
         client.activate();
