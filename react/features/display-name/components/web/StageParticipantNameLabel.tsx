@@ -82,7 +82,8 @@ const StageParticipantNameLabel = () => {
                 const data = JSON.parse(body);
                 setUsername("Đại biểu Test");
                 if (data.data.predict_segment) {
-                    setTypedStrings((prevStrings) => [...prevStrings, data.data.predict_segment]);
+                    // setTypedStrings((prevStrings) => [...prevStrings, data.data.predict_segment]);
+                    setTypedStrings(data.data.predict_segment);
                 }
                 // const { caption, username } = data;
                 // if (username) setUsername("Đại biểu : " + username);
