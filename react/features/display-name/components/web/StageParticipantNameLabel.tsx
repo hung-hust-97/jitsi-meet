@@ -79,6 +79,7 @@ const StageParticipantNameLabel = () => {
             //     }
             // });
             client.subscribe(`/topic/speech-to-text/predict-data/2dd4b550-14b1-42c3-9e93-d9867bdff8b8`, ({ body }) => {
+                // chưa thay timeSheetId ở chỗ này, đang fix cứng
                 const data = JSON.parse(body);
                 setUsername("Đại biểu Test");
                 if (data.data.predict_segment) {
