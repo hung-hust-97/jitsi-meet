@@ -3,7 +3,7 @@ import BaseTheme from '../../../base/ui/components/BaseTheme.native';
 const contentColumn = {
     flex: 1,
     flexDirection: 'column',
-    marginLeft: BaseTheme.spacing[2]
+    paddingLeft: BaseTheme.spacing[2]
 };
 
 const notification = {
@@ -14,10 +14,9 @@ const notification = {
     display: 'flex',
     flexDirection: 'row',
     height: 'auto',
-    marginBottom: BaseTheme.spacing[2],
-    marginHorizontal: BaseTheme.spacing[2],
-    maxWidth: 400,
-    width: 'auto'
+    marginVertical: BaseTheme.spacing[1],
+    maxWidth: 416,
+    width: '100%'
 };
 
 /**
@@ -42,20 +41,20 @@ export default {
      */
 
     contentContainer: {
-        marginHorizontal: BaseTheme.spacing[2]
+        paddingHorizontal: BaseTheme.spacing[2]
     },
 
     contentText: {
         color: BaseTheme.palette.text04,
-        marginLeft: BaseTheme.spacing[4],
-        marginTop: BaseTheme.spacing[1]
+        paddingLeft: BaseTheme.spacing[5],
+        paddingTop: BaseTheme.spacing[1]
     },
 
     contentTextTitle: {
         color: BaseTheme.palette.text04,
         fontWeight: 'bold',
-        marginLeft: BaseTheme.spacing[4],
-        marginTop: BaseTheme.spacing[2]
+        paddingLeft: BaseTheme.spacing[5],
+        paddingTop: BaseTheme.spacing[2]
     },
 
     /**
@@ -90,17 +89,19 @@ export default {
 
     iconContainer: {
         position: 'absolute',
+        left: BaseTheme.spacing[2],
         top: 12
     },
 
     btn: {
-        marginLeft: BaseTheme.spacing[4]
+        paddingLeft: BaseTheme.spacing[3]
     },
 
     btnContainer: {
         display: 'flex',
         flexDirection: 'row',
-        marginLeft: BaseTheme.spacing[3]
+        paddingLeft: BaseTheme.spacing[4],
+        paddingTop: BaseTheme.spacing[1]
     },
 
     withToolbox: {
