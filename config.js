@@ -404,9 +404,9 @@ var config = {
     // autoCaptionOnRecord: false,
 
     // Transcription options.
-    //transcription: {
+    transcription: {
     //     // Whether the feature should be enabled or not.
-    //     enabled: true,
+        enabled: true,
 
     //     // Translation languages.
     //     // Available languages can be found in
@@ -421,7 +421,7 @@ var config = {
     //     // detected based on the environment, e.g. if the app is opened in a chrome instance which
     //     // is using french as its default language then transcriptions for that participant will be in french.
     //     // Defaults to true.
-    //     useAppLanguage: true,
+        useAppLanguage: true,
 
     //     // Transcriber language. This settings will only work if "useAppLanguage"
     //     // is explicitly set to false.
@@ -431,7 +431,7 @@ var config = {
 
     //     // Enables automatic turning on transcribing when recording is started
     //     autoTranscribeOnRecord: true,
-    //},
+    },
 
     // Misc
 
@@ -657,13 +657,13 @@ var config = {
     // enableWelcomePage: true,
 
     // Configs for welcome page.
-    welcomePage: {
-        // Whether to disable welcome page. In case it's disabled a random room
-        // will be joined when no room is specified.
-        disabled: true,
-        // If set, landing page will redirect to this URL.
-        customUrl: ''
-    },
+    // welcomePage: {
+    //     // Whether to disable welcome page. In case it's disabled a random room
+    //     // will be joined when no room is specified.
+    //     disabled: true,
+    //     // If set, landing page will redirect to this URL.
+    //     customUrl: ''
+    // },
 
     // Configs for the lobby screen.
     // lobby: {
@@ -1516,8 +1516,8 @@ var config = {
     // You can use external service for authentication that will redirect back passing a jwt token
     // You can use tokenAuthUrl config to point to a URL of such service.
     // The URL for the service supports few params which will be filled in by the code.
-    // tokenAuthUrl:
-    //      'https://myservice.com/auth/{room}?code_challenge_method=S256&code_challenge={code_challenge}&state={state}'
+    tokenAuthUrl:
+         'https://jitsi-meet.example.com/static/signin.html?room={room}',
     // Supported parameters in tokenAuthUrl:
     //      {room} - will be replaced with the room name
     //      {code_challenge} - (A web only). A oauth 2.0 code challenge that will be sent to the service. See:
