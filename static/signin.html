@@ -1,75 +1,94 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Firebase Authentication</title>
-    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth-compat.js"></script>
 
-    <script type="module">
-      // Import
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
-      import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+<head>
+  <meta charset="UTF-8" />
+  <title>Firebase Authentication</title>
+  <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth-compat.js"></script>
 
-      // Firebase configuration
-      const firebaseConfig = {
-        apiKey: "AIzaSyCWW3nXMPfc7HOV3xfeny-xJwG9PHZxPts",
-        authDomain: "jitsi-auth-45ceb.firebaseapp.com",
-        projectId: "jitsi-auth-45ceb",
-        storageBucket: "jitsi-auth-45ceb.appspot.com",
-        messagingSenderId: "686054457256",
-        appId: "1:686054457256:web:c76227b3291d570468a79d",
-      };
+  <script type="module">
+    // Import
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
 
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const auth = getAuth(app);
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCWW3nXMPfc7HOV3xfeny-xJwG9PHZxPts",
+      authDomain: "jitsi-auth-45ceb.firebaseapp.com",
+      projectId: "jitsi-auth-45ceb",
+      storageBucket: "jitsi-auth-45ceb.appspot.com",
+      messagingSenderId: "686054457256",
+      appId: "1:686054457256:web:c76227b3291d570468a79d",
+    };
 
-      // FirebaseUI config.
-      var uiConfig = {
-        signInOptions: [
-          // Leave the lines as is for the providers you want to offer your users.
-          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-          firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-          firebase.auth.GithubAuthProvider.PROVIDER_ID,
-          firebase.auth.EmailAuthProvider.PROVIDER_ID,
-          firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-          firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID,
-        ],
-        callbacks: {
-          signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-            var user = authResult.user;
-            var credential = authResult.credential;
-            var isNewUser = authResult.additionalUserInfo.isNewUser;
-            var providerId = authResult.additionalUserInfo.providerId;
-            var operationType = authResult.operationType;
-            // Do something with the returned AuthResult.
-            // Return type determines whether we continue the redirect
-            // automatically or whether we leave that to developer to handle.
-            const urlParams = new URLSearchParams(window.location.search);
-            const room = urlParams.get("room");
-            window.location.href = `https://192.168.119.136/${room}?jwt=${user.accessToken}`;
-            return false;
-          },
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // FirebaseUI config.
+    var uiConfig = {
+      signInOptions: [
+        // Leave the lines as is for the providers you want to offer your users.
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+        // firebase.auth.GithubAuthProvider.PROVIDER_ID,
+        // firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+        // firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID,
+      ],
+      callbacks: {
+        signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+          var user = authResult.user;
+          var credential = authResult.credential;
+          var isNewUser = authResult.additionalUserInfo.isNewUser;
+          var providerId = authResult.additionalUserInfo.providerId;
+          var operationType = authResult.operationType;
+          // Do something with the returned AuthResult.
+          // Return type determines whether we continue the redirect
+          // automatically or whether we leave that to developer to handle.
+          const urlParams = new URLSearchParams(window.location.search);
+          const room = urlParams.get("room");
+          window.location.href = `${window.location.origin}/${room}?jwt=${user.accessToken}`;
+          return false;
         },
-        signInFlow: "popup",
-      };
+      },
+      signInFlow: "popup",
+      // tosUrl and privacyPolicyUrl accept either url string or a callback
+      // function.
+      // Terms of service url/callback.
+      tosUrl: function () {
+      },
+      // Privacy policy url/callback.
+      privacyPolicyUrl: function () {
+      }
+    };
 
-      // Initialize the FirebaseUI Widget using Firebase.
-      var ui = new firebaseui.auth.AuthUI(auth);
-      // The start method will wait until the DOM is loaded.
-      ui.start("#firebaseui-auth-container", uiConfig);
-    </script>
-    <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css"
-    />
-    <script type="text/javascript"></script>
-  </head>
-  <body>
-    <div id="firebaseui-auth-container"></div>
-  </body>
+    // Initialize the FirebaseUI Widget using Firebase.
+    var ui = new firebaseui.auth.AuthUI(auth);
+    // The start method will wait until the DOM is loaded.
+    ui.start("#firebaseui-auth-container", uiConfig);
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css" />
+  <script type="text/javascript"></script>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .cmc-logo {
+      display: block;
+      margin: 0 auto;
+      height: 140px;
+    }
+  </style>
+</head>
+
+<body>
+  <img src="/images/cmc-images/CMC ATI.png" class="cmc-logo">
+  <div id="firebaseui-auth-container"></div>
+</body>
+
 </html>
