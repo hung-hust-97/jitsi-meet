@@ -36,9 +36,14 @@ unlimited_jids = {
 }
 
 VirtualHost "jitmeet.example.com"
-    authentication = "token";
-    app_id="app_id"
-    app_secret="app_secret"
+    authentication = "token"
+    app_id = "my_app_id"
+    allow_empty_token = false
+    asap_key_server = "https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com"
+    asap_accepted_issuers = { "jitsi","https://securetoken.google.com/jitsi-auth-45ceb" }
+    asap_accepted_audiences = { "jitsi","jitsi-auth-45ceb" }
+    asap_require_room_claim = false;
+    cache_keys_url = "https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com"
 
     ssl = {
         key = "/etc/prosody/certs/jitmeet.example.com.key";

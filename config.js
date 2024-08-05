@@ -1527,8 +1527,8 @@ var config = {
     // You can use external service for authentication that will redirect back passing a jwt token
     // You can use tokenAuthUrl config to point to a URL of such service.
     // The URL for the service supports few params which will be filled in by the code.
-    tokenAuthUrl:
-        'https://jitsi-meet.example.com/static/auth/signin.html?room={room}&state={state}',
+    // tokenAuthUrl:
+    //     'https://jitsi-meet.example.com/static/auth/signin.html?room={room}&state={state}',
     // Supported parameters in tokenAuthUrl:
     //      {room} - will be replaced with the room name
     //      {code_challenge} - (A web only). A oauth 2.0 code challenge that will be sent to the service. See:
@@ -1544,7 +1544,7 @@ var config = {
     //          - android=true (in case android mobile app is used)
     //          - electron=true (when web is loaded in electron app)
     // If there is a logout service you can specify its URL with:
-    tokenLogoutUrl: 'https://jitsi-meet.example.com/static/auth/signout.html',
+    tokenLogoutUrl: 'https://iam.cmcati.vn/realms/CIST_1/protocol/openid-connect/logout?client_id=c-meet-online&post_logout_redirect_uri=https://jitsi-meet.example.com',
     // You can enable tokenAuthUrlAutoRedirect which will detect that you have logged in successfully before
     // and will automatically redirect to the token service to get the token for the meeting.
     tokenAuthUrlAutoRedirect: true,
