@@ -72,26 +72,26 @@ MiddlewareRegistry.register(({ dispatch, getState }) => next => action => {
         const { conference } = action;
 
         if (getState()['features/visitors'].iAmVisitor) {
-            dispatch(openDialog(JoinMeetingDialog));
 
             const { demoteActorDisplayName } = getState()['features/visitors'];
 
-            dispatch(setVisitorDemoteActor(undefined));
-
-            const notificationParams: INotificationProps = {
-                titleKey: 'visitors.notification.title',
-                descriptionKey: 'visitors.notification.description'
-            };
-
             if (demoteActorDisplayName) {
-                notificationParams.descriptionKey = 'visitors.notification.demoteDescription';
-                notificationParams.descriptionArguments = {
-                    actor: demoteActorDisplayName
+                const notificationParams: INotificationProps = {
+                    titleKey: 'visitors.notification.title',
+                    descriptionKey: 'visitors.notification.demoteDescription',
+                    descriptionArguments: {
+                        actor: demoteActorDisplayName
+                    }
                 };
+
+                batch(() => {
+                    dispatch(showNotification(notificationParams, NOTIFICATION_TIMEOUT_TYPE.STICKY));
+                    dispatch(setVisitorDemoteActor(undefined));
+                });
+            } else {
+                dispatch(openDialog(JoinMeetingDialog));
             }
 
-            // check for demote actor and update notification
-            dispatch(showNotification(notificationParams, NOTIFICATION_TIMEOUT_TYPE.STICKY));
         } else {
             dispatch(setVisitorsSupported(conference.isVisitorsSupported()));
             conference.on(JitsiConferenceEvents.VISITORS_SUPPORTED_CHANGED, (value: boolean) => {
@@ -110,8 +110,9 @@ MiddlewareRegistry.register(({ dispatch, getState }) => next => action => {
                 if (localParticipant && localParticipant.id === msg.id) {
                     // handle demote
                     dispatch(disconnect(true))
-                        .then(() => dispatch(setPreferVisitor(true)))
                         .then(() => {
+                            dispatch(setPreferVisitor(true));
+
                             // we need to set the name, so we can use it later in the notification
                             if (participantById) {
                                 dispatch(setVisitorDemoteActor(participantById.name));
