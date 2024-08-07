@@ -1527,8 +1527,7 @@ var config = {
     // You can use external service for authentication that will redirect back passing a jwt token
     // You can use tokenAuthUrl config to point to a URL of such service.
     // The URL for the service supports few params which will be filled in by the code.
-    // tokenAuthUrl:
-    //     'https://jitsi-meet.example.com/static/auth/signin.html?room={room}&state={state}',
+    tokenAuthUrl: 'https://jitsi-meet.example.com/static/oidc-pre-auth.html?path={room}&room={room}&state={state}',
     // Supported parameters in tokenAuthUrl:
     //      {room} - will be replaced with the room name
     //      {code_challenge} - (A web only). A oauth 2.0 code challenge that will be sent to the service. See:

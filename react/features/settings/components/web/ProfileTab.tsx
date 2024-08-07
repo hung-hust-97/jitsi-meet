@@ -193,7 +193,7 @@ class ProfileTab extends AbstractDialogTab<IProps, any> {
                         type = 'text'
                         value = { email } />
                 </div>}
-                { this._renderAuth() }
+                { authEnabled && this._renderAuth() }
             </div>
         );
     }
@@ -206,9 +206,15 @@ class ProfileTab extends AbstractDialogTab<IProps, any> {
      * @returns {void}
      */
     _onAuthToggle() {
+        if (this.props.authLogin) {
             sendAnalytics(createProfilePanelButtonEvent('logout.button'));
 
             this.props.dispatch(logout());
+        } else {
+            sendAnalytics(createProfilePanelButtonEvent('login.button'));
+
+            this.props.dispatch(login());
+        }
     }
 
     /**
@@ -226,10 +232,17 @@ class ProfileTab extends AbstractDialogTab<IProps, any> {
 
         return (
             <div>
+                <h2 className = { classes.label }>
+                    { t('toolbar.authenticate') }
+                </h2>
+                { authLogin
+                    && <div className = { classes.name }>
+                        { t('settings.loggedIn', { name: authLogin }) }
+                    </div> }
                 <Button
-                    accessibilityLabel = { t('toolbar.logout') }
+                    accessibilityLabel = { authLogin ? t('toolbar.logout') : t('toolbar.login') }
                     id = 'login_button'
-                    label = { t('toolbar.logout') }
+                    label = { authLogin ? t('toolbar.logout') : t('toolbar.login') }
                     onClick = { this._onAuthToggle } />
             </div>
         );
