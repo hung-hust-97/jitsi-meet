@@ -1546,7 +1546,7 @@ var config = {
     tokenLogoutUrl: 'https://iam.cmcati.vn/realms/CIST_1/protocol/openid-connect/logout?client_id=c-meet-online&post_logout_redirect_uri=https://jitsi-meet.example.com',
     // You can enable tokenAuthUrlAutoRedirect which will detect that you have logged in successfully before
     // and will automatically redirect to the token service to get the token for the meeting.
-    tokenAuthUrlAutoRedirect: true,
+    // tokenAuthUrlAutoRedirect: true,
 
     // You can put an array of values to target different entity types in the invite dialog.
     // Valid values are "phone", "room", "sip", "user", "videosipgw" and "email"
