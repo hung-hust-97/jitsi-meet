@@ -59,6 +59,7 @@ VirtualHost "jitmeet.example.com"
         "muc_breakout_rooms";
         "av_moderation";
         "room_metadata";
+        "persistent_lobby";
     }
     c2s_require_encryption = false
     lobby_muc = "lobby.jitmeet.example.com"
@@ -78,6 +79,7 @@ Component "conference.jitmeet.example.com" "muc"
         --"token_verification";
         "muc_rate_limit";
         "muc_password_whitelist";
+        "muc_wait_for_host";
     }
     admins = { "focusUser@auth.jitmeet.example.com" }
     muc_password_whitelist = {
