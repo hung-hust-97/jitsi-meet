@@ -68,6 +68,10 @@ VirtualHost "jitmeet.example.com"
     main_muc = "conference.jitmeet.example.com"
     -- muc_lobby_whitelist = { "recorder.jitmeet.example.com" } -- Here we can whitelist jibri to enter lobby enabled rooms
 
+VirtualHost "guest.jitmeet.example.com"
+    authentication = "anonymous"
+    c2s_require_encryption = false
+
 Component "conference.jitmeet.example.com" "muc"
     restrict_room_creation = true
     storage = "memory"
