@@ -883,7 +883,9 @@
             "stopEveryonesVideo": "Tắt hình của tất cả mọi người",
             "stopVideo": "Tắt hình",
             "unblockEveryoneMicCamera": "Mở khóa camera và micro của tất cả mọi người",
-            "videoModeration": "Bắt đầu video của họ"
+            "videoModeration": "Bắt đầu video của họ",
+            "lowerHand": "Hạ tay xuống",
+            "lowerAllHands": "Hạ tất cả tay xuống"
         },
         "close": "Đóng",
         "headings": {
