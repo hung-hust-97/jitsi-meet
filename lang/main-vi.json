@@ -43,44 +43,6 @@
         "audioOnly": "Băng thông thấp"
     },
     "bandwidthSettings": {
-        "assumedBandwidthBps": "ví dụ 10000000 cho 10 Mbps",
-        "assumedBandwidthBpsWarning": "Giá trị cao hơn có thể gây ra vấn đề mạng.",
-        "customValue": "giá trị tùy chỉnh",
-        "customValueEffect": "để đặt giá trị bps thực tế",
-        "leaveEmpty": "để trống",
-        "leaveEmptyEffect": "để cho phép ước lượng diễn ra",
-        "possibleValues": "Các giá trị có thể",
-        "setAssumedBandwidthBps": "Băng thông giả định (bps)",
-        "title": "Cài đặt băng thông",
-        "zeroEffect": "để vô hiệu hóa video"
-    },
-    "breakoutRooms": {
-        "actions": {
-            "add": "Thêm phòng phân tách",
-            "autoAssign": "Tự động phân công vào phòng phân tách",
-            "close": "Đóng",
-            "join": "Tham gia",
-            "leaveBreakoutRoom": "Rời khỏi phòng phân tách",
-            "more": "Thêm",
-            "remove": "Xóa",
-            "rename": "Đổi tên",
-            "renameBreakoutRoom": "Đổi tên phòng phân tách",
-            "sendToBreakoutRoom": "Chuyển người tham gia tới:"
-        },
-        "breakoutList": "Danh sách phòng phân tách",
-        "buttonLabel": "Phòng phân tách",
-        "defaultName": "Phòng phân tách #{{index}}",
-        "hideParticipantList": "Ẩn danh sách người tham gia",
-        "mainRoom": "Phòng chính",
-        "notifications": {
-            "joined": "Vào phòng nghỉ có tên \"{{name}}\"",
-            "joinedMainRoom": "Vào phòng chính",
-            "joinedTitle": "Phòng nghỉ"
-        },
-        "showParticipantList": "Hiện danh sách người tham gia",
-        "title": "Phòng phân tách"
-    },
-    "bandwidthSettings": {
         "assumedBandwidthBps": "ví dụ. 10000000 cho 10 Mb/giây",
         "assumedBandwidthBpsWarning": "Giá trị cao hơn có thể gây ra sự cố mạng.",
         "customValue": "giá trị tùy chỉnh",
@@ -166,6 +128,7 @@
         "privateNotice": "Tin nhắn riêng tới {{recipient}}",
         "sendButton": "Gửi",
         "smileysPanel": "Bảng biểu tượng cảm xúc",
+        "systemDisplayName": "Hệ thống",
         "tabs": {
             "chat": "Chat",
             "polls": "Thăm dò ý kiến"
@@ -287,9 +250,6 @@
         "testAudio": "Kiểm tra"
     },
     "dialIn": {
-        "screenTitle": "Tóm tắt cuộc gọi điện thoại"
-    },
-    "dialIn": {
         "screenTitle": "Tóm tắt"
     },
     "dialOut": {
@@ -303,8 +263,8 @@
         "Remove": "Xóa",
         "Share": "Chia sẻ",
         "Submit": "Đăng ký",
-        "WaitForHostMsg": "Cuộc họp chưa được bắt đầu. Nếu bạn là quản trị viên vui lòng xác thực. Nếu không, vui lòng đợi quản trị viên.",
-        "WaitingForHost": "Đang đợi quản trị viên...",
+        "WaitForHostMsg": "Cuộc họp chưa được bắt đầu vì chưa có người điều hành. Nếu bạn là quản trị viên vui lòng xác thực. Nếu không, vui lòng đợi quản trị viên.",
+        "WaitForHostNoAuthMsg": "Hội nghị vẫn chưa bắt đầu vì chưa có người điều hành nào đến. Vui lòng chờ.",
         "WaitingForHostButton": "Chờ người điều hành",
         "WaitingForHostTitle": "Chờ người điều hành ...",
         "Yes": "Có",
@@ -360,6 +320,7 @@
         "embedMeeting": "Nhúng cuộc họp",
         "enterDisplayName": "Nhập tên của bạn",
         "error": "Lỗi",
+        "errorRoomCreationRestriction": "Bạn đã cố gắng tham gia quá nhanh, vui lòng quay lại sau một lát.",
         "gracefulShutdown": "Dịch vụ của chúng tôi hiện đang bảo trì. Vui lòng thử lại sau.",
         "grantModeratorDialog": "Bạn có thực sự muốn cấp quyền quản trị cho người này?",
         "grantModeratorTitle": "Cấp quyền điều hành",
@@ -777,6 +738,8 @@
         "connectedTwoMembers": "{{first}} và {{second}} đã tham gia cuộc họp",
         "dataChannelClosed": "Chất lượng video bị suy giảm",
         "dataChannelClosedDescription": "Kênh cầu nối đã bị ngắt kết nối và do đó chất lượng video bị giới hạn ở cài đặt thấp nhất.",
+        "dataChannelClosedDescriptionWithAudio": "Kênh cầu nối không hoạt động và do đó âm thanh và video có thể bị gián đoạn.",
+        "dataChannelClosedWithAudio": "Audio and video quality may be impaired",
         "disabledIframe": "Nhúng chỉ dành cho mục đích thử nghiệm, cuộc gọi này sẽ ngắt kết nối sau {{timeout}} phút.",
         "disabledIframeSecondary": "Nhúng {{domain}} chỉ dành cho mục đích thử nghiệm, cuộc gọi này sẽ ngắt kết nối sau {{timeout}} phút. Vui lòng sử dụng <a href='{{jaasDomain}}' rel='noopener noreferrer' target='_blank'>Jitsi as a Service</a> cho việc nhúng vào sản xuất!",
         "disconnected": "đã ngắt kết nối",
@@ -823,6 +786,7 @@
         "newDeviceAction": "Sử dụng",
         "newDeviceAudioTitle": "Thiết bị âm thanh mới được phát hiện",
         "newDeviceCameraTitle": "Thiết bị camera mới được phát hiện",
+        "nextToSpeak": "Bạn là người tiếp theo phát biểu",
         "noiseSuppressionDesktopAudioDescription": "Không thể kích hoạt chế độ chống ồn khi chia sẻ âm thanh máy tính, vui lòng tắt chế độ này và thử lại.",
         "noiseSuppressionFailedTitle": "Không thể bắt đầu chế độ chống ồn",
         "noiseSuppressionStereoDescription": "Hiện không hỗ trợ chế độ chống ồn âm thanh stereo.",
@@ -857,8 +821,11 @@
         "videoUnmuteBlockedDescription": "Hoạt động bật camera và chia sẻ màn hình máy tính đã bị tạm thời chặn do giới hạn hệ thống.",
         "videoUnmuteBlockedTitle": "Chặn hoạt động bật camera và chia sẻ màn hình!",
         "viewLobby": "Xem phòng chờ",
+        "viewParticipants": "Xem người tham gia",
         "viewVisitors": "Xem khách thăm",
         "waitingParticipants": "{{waitingParticipants}} người",
+        "waitingVisitors": "Khách đang trong hàng đợi: {{waitingVisitors}}",
+        "waitingVisitorsTitle": "Cuộc họp vẫn chưa diễn ra!",
         "whiteboardLimitDescription": "Vui lòng lưu tiến độ của bạn, vì giới hạn người dùng sẽ sớm được đạt và bảng trắng sẽ đóng.",
         "whiteboardLimitTitle": "Sử dụng bảng trắng"
     },
@@ -872,7 +839,10 @@
             "audioModeration": "Tự mở micro",
             "blockEveryoneMicCamera": "Chặn mic và camera của tất cả mọi người",
             "breakoutRooms": "Phòng riêng",
+            "goLive": "Phát trực tiếp",
             "invite": "Mời người tham dự",
+            "lowerHand": "Hạ tay xuống",
+            "lowerAllHands": "Hạ tất cả tay xuống",
             "moreModerationActions": "Các tùy chọn kiểm duyệt khác",
             "moreModerationControls": "Các điều khiển kiểm duyệt khác",
             "moreParticipantOptions": "Các tùy chọn tham gia khác",
@@ -883,14 +853,13 @@
             "stopEveryonesVideo": "Tắt hình của tất cả mọi người",
             "stopVideo": "Tắt hình",
             "unblockEveryoneMicCamera": "Mở khóa camera và micro của tất cả mọi người",
-            "videoModeration": "Bắt đầu video của họ",
-            "lowerHand": "Hạ tay xuống",
-            "lowerAllHands": "Hạ tất cả tay xuống"
+            "videoModeration": "Bắt đầu video của họ"
         },
         "close": "Đóng",
         "headings": {
             "lobby": "Phòng chờ ({{count}})",
             "participantsList": "Những người tham dự ({{count}})",
+            "visitorInQueue": " (đang chờ {{count}})",
             "visitorRequests": "(yêu cầu {{count}})",
             "visitors": "Số lượt truy cập {{count}}",
             "waitingLobby": "Đang đợi ở phòng chờ ({{count}})"
@@ -904,10 +873,13 @@
     "pinnedParticipant": "Người tham gia đã được ghim",
     "polls": {
         "answer": {
+            "edit": "Chỉnh sửa",
+            "send": "Gửi",
             "skip": "Bỏ qua",
             "submit": "Gửi"
         },
         "by": "Bởi {{ name }}",
+        "closeButton": "Đóng bình chọn",
         "create": {
             "addOption": "Thêm tùy chọn",
             "answerPlaceholder": "Tùy chọn {{index}}",
@@ -917,6 +889,7 @@
             "pollQuestion": "Câu hỏi bình chọn",
             "questionPlaceholder": "Hỏi một câu hỏi",
             "removeOption": "Xóa tùy chọn",
+            "save": "Lưu",
             "send": "Gửi"
         },
         "errors": {
@@ -1522,12 +1495,22 @@
     },
     "visitors": {
         "chatIndicator": "(khách)",
+        "joinMeeting": {
+            "description": "Bạn hiện là quan sát viên của hội nghị này.",
+            "raiseHand": "Hãy giơ tay lên",
+            "title": "Tham gia cuộc họp",
+            "wishToSpeak": "Nếu bạn muốn phát biểu, vui lòng giơ tay bên dưới và chờ sự chấp thuận của người điều hành."
+        },
         "labelTooltip": "Số lượt truy cập: {{count}}",
         "notification": {
-            "demoteDescription": "Được gửi đến đây bởi {{actor}}, giơ tay để tham gia",
-            "description": "Để tham gia, hãy giơ tay",
-            "title": "Bạn là một khách trong cuộc họp"
-        }
+            "demoteDescription": "Được gửi đến đây bởi {{actor}}, hãy giơ tay để tham gia",
+            "noMainParticipantsDescription": "Một người tham gia cần bắt đầu cuộc họp. Vui lòng thử lại sau một lát.",
+            "noMainParticipantsTitle": "Cuộc họp này vẫn chưa bắt đầu.",
+            "noVisitorLobby": "Bạn không thể tham gia khi có sảnh đợi được bật cho cuộc họp.",
+            "notAllowedPromotion": "Người tham gia cần cho phép yêu cầu của bạn trước.",
+            "title": "Bạn là khách truy cập trong cuộc họp"
+        },
+        "waitingMessage": "Bạn sẽ tham gia cuộc họp ngay khi cuộc họp diễn ra!"
     },
     "volumeSlider": "Thanh điều chỉnh âm lượng",
     "welcomepage": {
