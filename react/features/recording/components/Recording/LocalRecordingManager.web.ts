@@ -48,7 +48,8 @@ const getMimeType = (): string => {
 };
 
 const VIDEO_BIT_RATE = 2500000; // 2.5Mbps in bits
-const MAX_SIZE = 1073741824; // 1GB in bytes
+// const MAX_SIZE = 1073741824; // 1GB in bytes
+const MAX_SIZE = 3221225472; // 3GB in bytes
 
 // Lazily initialize.
 let preferredMediaType: string;
@@ -278,7 +279,7 @@ const LocalRecordingManager: ILocalRecordingManager = {
 
         this.recorder = new MediaRecorder(this.stream, {
             mimeType: this.mediaType,
-            videoBitsPerSecond: VIDEO_BIT_RATE
+            videoBitsPerSecond: VIDEO_BIT_RATE,
         });
         this.recorder.addEventListener('dataavailable', e => {
             if (e.data && e.data.size > 0) {

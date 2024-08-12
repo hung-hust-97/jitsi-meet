@@ -465,9 +465,9 @@ class StartRecordingDialogContent extends AbstractStartRecordingDialogContent {
                                 </Container>
                             </Container>
                         )}
-                        <Text className = 'local-recording-warning text'>
+                        {/* <Text className = 'local-recording-warning text'>
                             {t('recording.localRecordingWarning')}
-                        </Text>
+                        </Text> */}
                         {_localRecordingNoNotification && !localRecordingOnlySelf
                             && <Text className = 'local-recording-warning notification'>
                                 {t('recording.localRecordingNoNotificationWarning')}
