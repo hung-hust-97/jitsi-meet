@@ -705,10 +705,10 @@ var config = {
     // disable1On1Mode: null | false | true,
 
     // Default local name to be displayed
-    // defaultLocalDisplayName: 'me',
+    defaultLocalDisplayName: 'Tôi',
 
     // Default remote name to be displayed
-    // defaultRemoteDisplayName: 'Fellow Jitster',
+    defaultRemoteDisplayName: 'Fellow CATIer',
 
     // Hides the display name from the participant thumbnail
     // hideDisplayName: false,
