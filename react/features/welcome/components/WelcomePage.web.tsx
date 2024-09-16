@@ -358,15 +358,13 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                             <a
                                 target="_blank"
                                 className="welcome-badge"
-                                href="https://apps.apple.com/th/app/c-meet/id6462052924"
-                            >
+                                href = { iosDownloadLink }>
                                 <img alt={t("welcomepage.mobileDownLoadLinkIos")} src="./images/app-store-badge.png" />
                             </a>
                             <a
-                                className="welcome-badge"
-                                href="https://play.google.com/store/apps/details?id=com.cmcati.ecabinetmobile&pcampaignid=web_share"
                                 target="_blank"
-                            >
+                                className="welcome-badge"
+                                href = { androidDownloadLink }>
                                 <img
                                     alt={t("welcomepage.mobileDownLoadLinkAndroid")}
                                     src="./images/google-play-badge.png"
