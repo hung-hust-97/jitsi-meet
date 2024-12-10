@@ -645,6 +645,11 @@ export function isParticipantModerator(participant?: IParticipant) {
     return participant?.role === PARTICIPANT_ROLE.MODERATOR;
 }
 
+export function isRoomOwner(participant?: IParticipant, roomOwner?: string) {
+    console.log("dht - id - roomOwner - logic", participant?.id, roomOwner, participant?.id === roomOwner)
+    return participant?.id === roomOwner;
+}
+
 /**
  * Returns the dominant speaker participant.
  *
@@ -704,6 +709,18 @@ export function isLocalParticipantModerator(stateful: IStateful) {
     }
 
     return isParticipantModerator(local);
+}
+
+export function isLocalRoomOwner(stateful: IStateful) {
+    const state = toState(stateful)['features/base/participants'];
+    const state2 = toState(stateful)['features/base/conference'];
+    const { local } = state;
+
+    if (!local) {
+        return false;
+    }
+    // console.log(conference)
+    return isRoomOwner(local, state2?.conference?.room?.roomOwner);
 }
 
 /**

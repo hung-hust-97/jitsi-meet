@@ -27,6 +27,7 @@ import {
     conferenceJoinInProgress,
     conferenceJoined,
     conferenceLeft,
+    conferenceRoomOwnerSet,
     conferenceSubjectChanged,
     conferenceTimestampChanged,
     conferenceUniqueIdSet,
@@ -1474,6 +1475,19 @@ export default {
                 // is disconnected.
                 room.sessionId = room.getMeetingUniqueId();
                 APP.store.dispatch(conferenceUniqueIdSet(room, ...args));
+            });
+
+        room.on(
+            JitsiConferenceEvents.CONFERENCE_ROOM_OWNER_SET,
+            (...args) => {
+                // logger.info('Room owner: ', room.getRoomOwner());
+
+                // Preserve the sessionId so that the value is accessible even after room
+                // is disconnected.
+                // room.sessionId = room.getRoomOwner();
+                // logger.info(`Unique id set for conference: ${room.sessionId}`);
+                APP.store.dispatch(conferenceRoomOwnerSet(room, ...args));
+                console.info(APP.store.getState());
             });
 
         // we want to ignore this event in case of tokenAuthUrl config
