@@ -378,18 +378,18 @@ var config = {
     // },
 
     // Customize the Live Streaming dialog. Can be modified for a non-YouTube provider.
-    // liveStreaming: {
-    //    // Whether to enable live streaming or not.
-    //    enabled: false,
-    //    // Terms link
-    //    termsLink: 'https://www.youtube.com/t/terms',
-    //    // Data privacy link
-    //    dataPrivacyLink: 'https://policies.google.com/privacy',
-    //    // RegExp string that validates the stream key input field
-    //    validatorRegExpString: '^(?:[a-zA-Z0-9]{4}(?:-(?!$)|$)){4}',
-    //    // Documentation reference for the live streaming feature.
-    //    helpLink: 'https://jitsi.org/live'
-    // },
+    liveStreaming: {
+       // Whether to enable live streaming or not.
+       enabled: true,
+       // Terms link
+       termsLink: 'https://www.youtube.com/t/terms',
+       // Data privacy link
+       dataPrivacyLink: 'https://policies.google.com/privacy',
+       // RegExp string that validates the stream key input field
+       validatorRegExpString: '^(?:[a-zA-Z0-9]{4}(?:-(?!$)|$)){4}',
+       // Documentation reference for the live streaming feature.
+       helpLink: 'https://jitsi.org/live'
+    },
 
     // DEPRECATED. Use liveStreaming.enabled instead.
     // liveStreamingEnabled: false,
@@ -408,32 +408,32 @@ var config = {
 
     // Transcription options.
     transcription: {
-        //     // Whether the feature should be enabled or not.
+        // Whether the feature should be enabled or not.
         enabled: true,
 
-        //     // Translation languages.
-        //     // Available languages can be found in
-        //     // ./src/react/features/transcribing/translation-languages.json.
-        //     translationLanguages: ['en-US', 'es'],
+        // Translation languages.
+        // Available languages can be found in
+        // ./src/react/features/transcribing/translation-languages.json.
+        translationLanguages: ['vi', 'en'],
 
-        //     // Important languages to show on the top of the language list.
-        //     translationLanguagesHead: ['en'],
+        // Important languages to show on the top of the language list.
+        translationLanguagesHead: ['vi', 'en'],
 
-        //     // If true transcriber will use the application language.
-        //     // The application language is either explicitly set by participants in their settings or automatically
-        //     // detected based on the environment, e.g. if the app is opened in a chrome instance which
-        //     // is using french as its default language then transcriptions for that participant will be in french.
-        //     // Defaults to true.
+        // If true transcriber will use the application language.
+        // The application language is either explicitly set by participants in their settings or automatically
+        // detected based on the environment, e.g. if the app is opened in a chrome instance which
+        // is using french as its default language then transcriptions for that participant will be in french.
+        // Defaults to true.
         useAppLanguage: true,
 
-        //     // Transcriber language. This settings will only work if "useAppLanguage"
-        //     // is explicitly set to false.
-        //     // Available languages can be found in
-        //     // ./src/react/features/transcribing/transcriber-langs.json.
-        //     preferredLanguage: 'en-US',
+        // Transcriber language. This settings will only work if "useAppLanguage"
+        // is explicitly set to false.
+        // Available languages can be found in
+        // ./src/react/features/transcribing/transcriber-langs.json.
+        preferredLanguage: 'en-US',
 
-        //     // Enables automatic turning on transcribing when recording is started
-        //     autoTranscribeOnRecord: true,
+        // Enables automatic turning on transcribing when recording is started
+        autoTranscribeOnRecord: true,
     },
 
     // Misc
