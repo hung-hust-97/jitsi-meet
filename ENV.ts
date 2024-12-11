@@ -10,7 +10,7 @@ export interface Environment {
 }
 
 export const env: Environment = {
-    APP_NAME: "C-Meet",
+    APP_NAME: "C-MEET",
     API_URL: "https://meet.cmcati.vn/",
     DEBUG_MODE: false,
     WELCOME_PAGE_MESSAGE: [
